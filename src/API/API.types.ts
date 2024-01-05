@@ -22,3 +22,28 @@ export interface IRecipe {
 export interface IRecipeBlob extends IRecipe {
   matches: number
 }
+
+export interface IRecipeIngredient {
+  id: number,
+  quantity: number,
+  measurement?: string,
+  originalIngredient?: string
+}
+
+export interface IRecipeSteps {
+  row: number,
+  text?: string
+}
+
+export interface IIngredientConverter {
+  categoryId: number,
+  ingredientId: number,
+  originalIngredient?: string,
+  replacementIngredient?: string
+}
+export interface IRecipeComplete {
+  recipe: IRecipe,
+  recipeSteps: IRecipeSteps[],
+  recipeIngredient: IRecipeIngredient[],
+  recipeIngredientConverter: IIngredientConverter[]
+}

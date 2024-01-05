@@ -7,7 +7,6 @@ export const api = async (route: string, method: AxiosMethod, data?: number[]) =
   try {
     const url = path + route
 
-    data = [1, 2, 3, 4, 26]
     const response = await axios({
       method: method,
       url: url,

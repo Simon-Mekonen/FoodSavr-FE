@@ -1,49 +1,49 @@
 export enum AxiosMethod {
-  Get = 'get',
-  Post = 'post',
+  Get = "get",
+  Post = "post",
   // add more types when needed
 }
 
 export interface IIngredient {
-  id: number,
-  categoryId: number,
-  name: string
+  id: number;
+  categoryId: number;
+  name: string;
 }
 
 export interface IRecipe {
-  id: number,
-  name?: string,
-  description?: string,
-  imgUrl?: string,
-  portions: number,
-  cookingTime: number
+  id: number;
+  name?: string;
+  description?: string;
+  imgLink?: string;
+  portions: number;
+  cookingTime: number;
 }
 
 export interface IRecipeBlob extends IRecipe {
-  matches: number
+  matches: number;
 }
 
 export interface IRecipeIngredient {
-  id: number,
-  quantity: number,
-  measurement?: string,
-  originalIngredient?: string
+  ingredientId: number;
+  quantity: number;
+  measurement?: string | null;
+  originalIngredient?: string;
 }
 
 export interface IRecipeSteps {
-  row: number,
-  text?: string
+  row: number;
+  text?: string;
 }
 
 export interface IIngredientConverter {
-  categoryId: number,
-  ingredientId: number,
-  originalIngredient?: string,
-  replacementIngredient?: string
+  categoryId: number;
+  ingredientId: number;
+  originalIngredient?: string;
+  replacementIngredient?: string;
 }
 export interface IRecipeComplete {
-  recipe: IRecipe,
-  recipeSteps: IRecipeSteps[],
-  recipeIngredient: IRecipeIngredient[],
-  recipeIngredientConverter: IIngredientConverter[]
+  recipe: IRecipe;
+  recipeSteps: IRecipeSteps[];
+  recipeIngredient: IRecipeIngredient[];
+  ingredientConverter: IIngredientConverter[];
 }

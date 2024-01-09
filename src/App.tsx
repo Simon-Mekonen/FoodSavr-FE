@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <h1>FoodSavr Testing API</h1>
+      <h1>FoodSavr</h1>
       <div className="card">
         <button onClick={() => fetchIngredients()}>Ingredients</button>
         <button onClick={() => fetchRecipeMatches([1, 2, 3, 4, 26])}>

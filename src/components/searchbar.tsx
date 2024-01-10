@@ -3,9 +3,14 @@ import { useAutocomplete } from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import { IIngredient } from "../API/API.types";
 import { testDataIngredients } from "../../testData";
+import { useEffect } from "react";
 
 export default function SearchBar() {
-  const [value, setValue] = React.useState<IIngredient[]>([]);
+  const [inputValue, setInputValue] = React.useState<IIngredient[]>([]);
+
+  useEffect(() => {
+    console.log(inputValue);
+  }, [inputValue]);
 
   const {
     getRootProps,
@@ -16,11 +21,14 @@ export default function SearchBar() {
     groupedOptions,
     focused,
   } = useAutocomplete({
-    id: "use-autocomplete-demo",
+    id: "searchbar",
     options: testDataIngredients,
+    filterSelectedOptions: true,
+    autoComplete: true,
+    multiple: true,
+    value: inputValue,
     getOptionLabel: (option) => option.name,
-    onChange: (event, newValue) =>
-      setValue(() => [...value, ...(newValue ? [newValue] : [])]),
+    onChange: (event, newValue) => setInputValue(newValue),
   });
 
   return (
@@ -31,13 +39,11 @@ export default function SearchBar() {
       </Root>
       {groupedOptions.length > 0 && (
         <Listbox {...getListboxProps()}>
-          {(groupedOptions as typeof testDataIngredients).map(
-            (option, index) => (
-              <Option {...getOptionProps({ option, index })}>
-                {option.name}
-              </Option>
-            )
-          )}
+          {(groupedOptions as IIngredient[]).map((option, index) => (
+            <Option {...getOptionProps({ option, index })}>
+              {option.name}
+            </Option>
+          ))}
         </Listbox>
       )}
     </div>

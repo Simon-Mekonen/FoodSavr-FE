@@ -1,6 +1,8 @@
 import * as React from "react";
-import { useAutocomplete } from "@mui/base/useAutocomplete";
-import { styled } from "@mui/system";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+
+import { Stack, styled } from "@mui/system";
 import { IIngredient } from "../API/API.types";
 import { testDataIngredients } from "../../testData";
 import { useEffect } from "react";
@@ -12,41 +14,21 @@ export default function SearchBar() {
     console.log(inputValue);
   }, [inputValue]);
 
-  const {
-    getRootProps,
-    getInputLabelProps,
-    getInputProps,
-    getListboxProps,
-    getOptionProps,
-    groupedOptions,
-    focused,
-  } = useAutocomplete({
-    id: "searchbar",
-    options: testDataIngredients,
-    filterSelectedOptions: true,
-    autoComplete: true,
-    multiple: true,
-    value: inputValue,
-    getOptionLabel: (option) => option.name,
-    onChange: (event, newValue) => setInputValue(newValue),
-  });
-
   return (
-    <div style={{ marginBottom: 16 }}>
-      <Label {...getInputLabelProps()}>Choose ingredients</Label>
-      <Root {...getRootProps()} className={focused ? "Mui-focused" : ""}>
-        <Input {...getInputProps()} />
-      </Root>
-      {groupedOptions.length > 0 && (
-        <Listbox {...getListboxProps()}>
-          {(groupedOptions as IIngredient[]).map((option, index) => (
-            <Option {...getOptionProps({ option, index })}>
-              {option.name}
-            </Option>
-          ))}
-        </Listbox>
-      )}
-    </div>
+    <Stack>
+      <Autocomplete
+        multiple
+        id="tags-outlined"
+        options={testDataIngredients}
+        value={inputValue}
+        onChange={(event, newValue) => setInputValue(newValue)}
+        getOptionLabel={(option) => option.name}
+        filterSelectedOptions
+        renderInput={(value) => (
+          <TextField {...value} label="Choose your ingredients" />
+        )}
+      />
+    </Stack>
   );
 }
 

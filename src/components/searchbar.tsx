@@ -17,12 +17,14 @@ export default function SearchBar() {
   return (
     <Stack>
       <Autocomplete
+        autoComplete={true}
         multiple
         id="tags-outlined"
         options={testDataIngredients}
         value={inputValue}
         onChange={(event, newValue) => setInputValue(newValue)}
         getOptionLabel={(option) => option.name}
+        sx={{ width: 500 }}
         filterSelectedOptions
         renderInput={(value) => (
           <TextField {...value} label="Choose your ingredients" />

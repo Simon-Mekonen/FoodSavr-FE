@@ -1,7 +1,7 @@
 // testDataRecipeMatches;
 
 import { Box } from "@mui/system";
-import { testDataIngredients, testDataRecipeMatches } from "../../testData";
+import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
 import RecipeCard from "./recipeCard";
 
 const RecipeCardList = () => {

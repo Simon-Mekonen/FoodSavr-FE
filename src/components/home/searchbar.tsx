@@ -3,8 +3,8 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
 import { Stack, styled } from "@mui/system";
-import { IIngredient } from "../API/API.types";
-import { testDataIngredients } from "../../testData";
+import { IIngredient } from "../../API/API.types";
+import { testDataIngredients } from "../../../testData";
 import { useEffect } from "react";
 
 const SearchBar = () => {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box, palette } from "@mui/system";
-import { IRecipeBlob } from "../API/API.types";
+import { IRecipeBlob } from "../../API/API.types";
 import { Card, CardContent, CardMedia } from "@mui/material";
 
 interface RecipeCardProps {

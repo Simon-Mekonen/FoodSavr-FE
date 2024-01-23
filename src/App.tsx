@@ -1,7 +1,7 @@
 import "./App.css";
 import { getIngredients } from "./API/IngredientAPI";
 import { getRecipe, getRecipeMatches } from "./API/RecipeAPI";
-import RecipeCard from "./components/recipeCard";
+import RecipeCard from "./components/home/recipeCard";
 import { useState } from "react";
 import { IRecipeComplete } from "./API/API.types";
 

@@ -1,8 +1,14 @@
 import "./App.css";
 import { getIngredients } from "./API/IngredientAPI";
 import { getRecipe, getRecipeMatches } from "./API/RecipeAPI";
+import RecipeCard from "./components/recipeCard";
+import { useState } from "react";
+import { IRecipeComplete } from "./API/API.types";
+
+// this is not in use at the moment
 
 function App() {
+  const [recipe, setRecipe] = useState<IRecipeComplete>();
   const fetchIngredients = async () => {
     const ingredients = await getIngredients();
     console.log(ingredients);
@@ -13,7 +19,8 @@ function App() {
     console.log(recipes);
   };
   const fetchRecipe = async (id: number, ingredients: number[]) => {
-    const recipe = await getRecipe(id, ingredients);
+    const results = await getRecipe(id, ingredients);
+    setRecipe(results);
     console.log(recipe);
   };
 
@@ -27,6 +34,9 @@ function App() {
         </button>
         <button onClick={() => fetchRecipe(2, [1, 2, 3, 4, 5, 6, 7])}>
           Recipe
+          {recipe && (
+            <RecipeCard key={recipe?.recipe.id} recipeCardData={recipe} />
+          )}
         </button>
       </div>
     </>

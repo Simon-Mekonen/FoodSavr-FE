@@ -7,7 +7,7 @@ import { IIngredient } from "../API/API.types";
 import { testDataIngredients } from "../../testData";
 import { useEffect } from "react";
 
-export default function SearchBar() {
+const SearchBar = () => {
   const [inputValue, setInputValue] = React.useState<IIngredient[]>([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function SearchBar() {
       />
     </Stack>
   );
-}
+};
 
 const blue = {
   100: "#DAECFF",
@@ -177,3 +177,5 @@ const Option = styled("li")(
   }
   `
 );
+
+export default SearchBar;

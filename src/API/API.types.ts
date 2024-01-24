@@ -3,7 +3,6 @@ export enum AxiosMethod {
   Post = "post",
   // add more types when needed
 }
-
 export interface IIngredient {
   id: number;
   categoryId: number;

@@ -2,9 +2,9 @@
 
 import { Box } from "@mui/system";
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
-import RecipeCard from "./recipeCard";
+import { RecipeCard } from "./recipeCard";
 
-const RecipeCardList = () => {
+export const RecipeCardList = () => {
   const testData = testDataRecipeMatches;
   const ingredientCount = testDataIngredients.length;
 
@@ -30,5 +30,3 @@ const cardListBox = {
   justifyContent: "center",
   alignItems: "flex-start",
 };
-
-export default RecipeCardList;

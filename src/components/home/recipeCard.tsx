@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Box, palette } from "@mui/system";
+import { Box /*palette */ } from "@mui/system";
 import { IRecipeBlob } from "../../API/API.types";
-import { Card, CardContent, CardMedia } from "@mui/material";
+import { Card, CardContent, CardMedia, Divider } from "@mui/material";
+import { FaRegClock, FaRegHeart, FaRegQuestionCircle } from "react-icons/fa";
 
-interface RecipeCardProps {
+interface IRecipeCardProps {
   recipeCardData: IRecipeBlob;
   ingredientCount: number;
   key: string | number;
 }
-const RecipeCard: React.FC<RecipeCardProps> = ({
+export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
   ingredientCount,
   key,
@@ -35,12 +36,12 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
               : recipeCardData.description}
           </span>
         </CardContent>
-        {/* <Divider style={{ background: "#57807f38" }} /> */}
+        <Divider style={{ background: "#57807f38" }} />
         <Box display={"flex"}>
           <Box p={2} flex={"auto"} /*className={borderedGridStyles.item}*/>
-            {/* <p className={styles.statLabel}>
+            <p /*className={styles.statLabel}*/>
               <FaRegQuestionCircle className="Icon-recipe-portions" />
-            </p> */}
+            </p>
 
             <p className="Stat-label">
               <span className="Stat-value">{recipeCardData.portions}</span>{" "}
@@ -48,9 +49,9 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             </p>
           </Box>
           <Box p={2} flex={"auto"}>
-            {/* <p className={styles.statLabel}>
+            <p /*className={styles.statLabel}*/>
               <FaRegClock className="Icon-recipe-timeleft" />
-            </p> */}
+            </p>
 
             <p className="Stat-label">
               <span className="Stat-value">
@@ -61,9 +62,9 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             </p>
           </Box>
           <Box p={2} flex={"auto"}>
-            {/* <p className={styles.statLabel}>
+            <p /*className={styles.statLabel}*/>
               <FaRegHeart className="Icon-recipe-matches" />
-            </p> */}
+            </p>
 
             <p className="Stat-label">
               <span className="Stat-value">
@@ -83,38 +84,36 @@ const boxSize = {
   mx: "10px",
 };
 
-const styles = {
-  card: {
-    borderRadius: 12,
-    minWidth: 256,
-    maxWidth: 356,
-    textAlign: "center",
-  },
+// const styles = {
+//   card: {
+//     borderRadius: 12,
+//     minWidth: 256,
+//     maxWidth: 356,
+//     textAlign: "center",
+//   },
 
-  heading: {
-    fontSize: 18,
-    fontWeight: "bold",
-    letterSpacing: "0.5px",
-    marginTop: 10,
-    marginBottom: 8,
-  },
-  subheader: {
-    fontSize: 15,
-    color: "#5c5c5c",
-    marginBottom: 8,
-  },
-  statLabel: {
-    fontSize: 12,
-    color: "grey",
-    fontWeight: 500,
-    margin: 0,
-    padding: 8,
-  },
-  statValue: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 4,
-  },
-};
-
-export default RecipeCard;
+//   heading: {
+//     fontSize: 18,
+//     fontWeight: "bold",
+//     letterSpacing: "0.5px",
+//     marginTop: 10,
+//     marginBottom: 8,
+//   },
+//   subheader: {
+//     fontSize: 15,
+//     color: "#5c5c5c",
+//     marginBottom: 8,
+//   },
+//   statLabel: {
+//     fontSize: 12,
+//     color: "grey",
+//     fontWeight: 500,
+//     margin: 0,
+//     padding: 8,
+//   },
+//   statValue: {
+//     fontSize: 20,
+//     fontWeight: "bold",
+//     marginBottom: 4,
+//   },
+// };

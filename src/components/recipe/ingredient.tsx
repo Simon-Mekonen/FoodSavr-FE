@@ -1,9 +1,5 @@
 import { Box, Stack } from "@mui/system";
-import { IRecipeIngredientComplete } from "../../pages/Recipe.types";
-
-interface IngredientProps {
-  ingredients: IRecipeIngredientComplete[];
-}
+import { IngredientProps } from "./recipe.types";
 
 export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
   return (

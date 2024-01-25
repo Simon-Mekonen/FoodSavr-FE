@@ -1,13 +1,7 @@
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
 import { FaRegClock, FaRegHeart, FaRegQuestionCircle } from "react-icons/fa";
-
-interface IRecipeInfoProps {
-  portions: number;
-  cookingTime: number;
-  ingredientMatches: number;
-  inputIngredient: number;
-}
+import { IRecipeInfoProps } from "./recipe.types";
 
 export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
   portions,

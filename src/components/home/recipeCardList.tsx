@@ -1,17 +1,20 @@
-// testDataRecipeMatches;
-
 import { Box } from "@mui/system";
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
 import { RecipeCard } from "./recipeCard";
+import { IRecipeCardListProps } from "./home.types";
 
-export const RecipeCardList = () => {
-  const testData = testDataRecipeMatches;
-  const ingredientCount = testDataIngredients.length;
+export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
+  recipeCardDataList,
+  ingredientCount,
+}) => {
+  // Test data
+  recipeCardDataList = testDataRecipeMatches;
+  ingredientCount = testDataIngredients.length;
 
   return (
-    testData && (
+    recipeCardDataList && (
       <Box sx={cardListBox}>
-        {testData.map((card, key) => (
+        {recipeCardDataList.map((card, key) => (
           <RecipeCard
             recipeCardData={card}
             ingredientCount={ingredientCount}

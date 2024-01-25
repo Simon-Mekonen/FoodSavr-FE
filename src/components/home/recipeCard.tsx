@@ -1,14 +1,9 @@
 import * as React from "react";
 import { Box /*palette */ } from "@mui/system";
-import { IRecipeBlob } from "../../API/API.types";
 import { Card, CardContent, CardMedia, Divider } from "@mui/material";
 import { FaRegClock, FaRegHeart, FaRegQuestionCircle } from "react-icons/fa";
+import { IRecipeCardProps } from "./home.types";
 
-interface IRecipeCardProps {
-  recipeCardData: IRecipeBlob;
-  ingredientCount: number;
-  key: string | number;
-}
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
   ingredientCount,

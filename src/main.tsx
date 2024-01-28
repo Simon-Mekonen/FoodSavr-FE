@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./pages/Error";
-import RecipePage from "./pages/Recipe";
-import HomePage from "./pages/Home";
+import ErrorPage from "./Pages/Error";
+import RecipePage from "./Pages/Recipe";
+import HomePage from "./Pages/Home";
+import { IRecipe } from "./API/API.types";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,14 @@ const router = createBrowserRouter([
   },
   {
     path: "recipe",
-    element: <RecipePage />,
+    element: (
+      <RecipePage
+        recipe={{} as IRecipe}
+        recipeSteps={[]}
+        recipeIngredient={[]}
+        ingredientConverter={[]}
+      />
+    ),
     errorElement: <ErrorPage />,
   },
 ]);

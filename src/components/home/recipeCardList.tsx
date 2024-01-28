@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
 import { RecipeCard } from "./recipeCard";
 import { IRecipeCardListProps } from "./home.types";
@@ -13,7 +13,7 @@ export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
 
   return (
     recipeCardDataList && (
-      <Box sx={cardListBox}>
+      <StyledBox>
         {recipeCardDataList.map((card, key) => (
           <RecipeCard
             recipeCardData={card}
@@ -21,15 +21,15 @@ export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
             key={key}
           />
         ))}
-      </Box>
+      </StyledBox>
     )
   );
 };
 
-const cardListBox = {
+const StyledBox = styled(Box)({
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
   justifyContent: "center",
   alignItems: "flex-start",
-};
+});

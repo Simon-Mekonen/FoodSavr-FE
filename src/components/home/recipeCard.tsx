@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Box /*palette */ } from "@mui/system";
-import { Card, CardContent, CardMedia, Divider } from "@mui/material";
-import { FaRegClock, FaRegHeart, FaRegQuestionCircle } from "react-icons/fa";
+import { Card, CardContent, CardMedia, Divider, styled } from "@mui/material";
 import { IRecipeCardProps } from "./home.types";
+import { FSIcon } from "../FSicon";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -13,7 +13,7 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
 
   return (
     <Box sx={boxSize} key={key} onClick={() => console.log(recipeCardData)}>
-      <Card /*className={cx(styling.card, shadowStyles.root)}*/>
+      <StyledCard /*className={cx(styling.card, shadowStyles.root)}*/>
         <CardContent>
           <CardMedia
             style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
@@ -24,51 +24,53 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
                 : "https://i1.wp.com/www.careandshare-ut.org/wp-content/uploads/2020/09/image-coming-soon.jpg?ssl=1"
             }
           />
-          <h3 /*className={styles.heading}*/>{recipeCardData.name}</h3>
-          <span /*className={styles.subheader}*/>
+          <StyledH3 /*className={styles.heading}*/>
+            {recipeCardData.name}
+          </StyledH3>
+          <StyledH4 /*className={styles.subheader}*/>
             {recipeDescription.length > 150
               ? `${recipeDescription.substring(0, 120)}...`
               : recipeCardData.description}
-          </span>
+          </StyledH4>
         </CardContent>
         <Divider style={{ background: "#57807f38" }} />
         <Box display={"flex"}>
           <Box p={2} flex={"auto"} /*className={borderedGridStyles.item}*/>
-            <p /*className={styles.statLabel}*/>
-              <FaRegQuestionCircle className="Icon-recipe-portions" />
-            </p>
+            <StyledStatLabel>
+              <FSIcon type="Question"></FSIcon>
+            </StyledStatLabel>
 
-            <p className="Stat-label">
-              <span className="Stat-value">{recipeCardData.portions}</span>{" "}
-              PORT.
-            </p>
+            <StyledStatLabel>
+              {/*TODO: change PORT. text?*/}
+              <StyledStatValue>
+                {recipeCardData.portions} PORT.
+              </StyledStatValue>{" "}
+            </StyledStatLabel>
           </Box>
           <Box p={2} flex={"auto"}>
-            <p /*className={styles.statLabel}*/>
-              <FaRegClock className="Icon-recipe-timeleft" />
-            </p>
+            <StyledStatLabel>
+              <FSIcon type="Clock"></FSIcon>
+            </StyledStatLabel>
 
-            <p className="Stat-label">
-              <span className="Stat-value">
-                {/* {" "} */}
-                {recipeCardData.cookingTime + " MIN"}
-              </span>
-              {/* {" "} */}
-            </p>
+            <StyledStatLabel>
+              <StyledStatValue>
+                {recipeCardData.cookingTime} MIN
+              </StyledStatValue>
+            </StyledStatLabel>
           </Box>
           <Box p={2} flex={"auto"}>
-            <p /*className={styles.statLabel}*/>
-              <FaRegHeart className="Icon-recipe-matches" />
-            </p>
+            <StyledStatLabel>
+              <FSIcon type="Heart"></FSIcon>
+            </StyledStatLabel>
 
-            <p className="Stat-label">
-              <span className="Stat-value">
-                {recipeCardData.matches}/{ingredientCount + " RÅVAROR"}
-              </span>{" "}
-            </p>
+            <StyledStatLabel>
+              <StyledStatValue>
+                {recipeCardData.matches}/{ingredientCount} RÅVAROR
+              </StyledStatValue>
+            </StyledStatLabel>
           </Box>
         </Box>
-      </Card>
+      </StyledCard>
     </Box>
   );
 };
@@ -79,36 +81,38 @@ const boxSize = {
   mx: "10px",
 };
 
-// const styles = {
-//   card: {
-//     borderRadius: 12,
-//     minWidth: 256,
-//     maxWidth: 356,
-//     textAlign: "center",
-//   },
+const StyledCard = styled(Card)({
+  borderRadius: 12,
+  minWidth: 256,
+  maxWidth: 356,
+  textAlign: "center",
+});
+const StyledH3 = styled("h3")({
+  //Heading
+  fontSize: 18,
+  fontWeight: "bold",
+  letterSpacing: "0.5px",
+  marginTop: 10,
+  marginBottom: 8,
+});
 
-//   heading: {
-//     fontSize: 18,
-//     fontWeight: "bold",
-//     letterSpacing: "0.5px",
-//     marginTop: 10,
-//     marginBottom: 8,
-//   },
-//   subheader: {
-//     fontSize: 15,
-//     color: "#5c5c5c",
-//     marginBottom: 8,
-//   },
-//   statLabel: {
-//     fontSize: 12,
-//     color: "grey",
-//     fontWeight: 500,
-//     margin: 0,
-//     padding: 8,
-//   },
-//   statValue: {
-//     fontSize: 20,
-//     fontWeight: "bold",
-//     marginBottom: 4,
-//   },
-// };
+const StyledH4 = styled("h4")({
+  //SubHeading
+  fontSize: 15,
+  color: "#5c5c5c",
+  marginBottom: 8,
+});
+
+const StyledStatLabel = styled("p")({
+  fontSize: 12,
+  color: "grey",
+  fontWeight: 500,
+  margin: 0,
+  padding: 8,
+});
+
+const StyledStatValue = styled("p")({
+  fontSize: 20,
+  fontWeight: "bold",
+  marginBottom: 4,
+});

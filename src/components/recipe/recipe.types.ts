@@ -1,5 +1,5 @@
 import { IRecipeSteps } from "../../API/API.types";
-import { IRecipeIngredientComplete } from "../../pages/Recipe.types";
+import { IRecipeIngredientComplete } from "../../Pages/Recipe.types";
 
 export interface IRecipeStepsDoneProps extends IRecipeSteps {
   done?: boolean;

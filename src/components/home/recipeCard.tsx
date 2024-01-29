@@ -3,6 +3,7 @@ import { Box /*palette */ } from "@mui/system";
 import { Card, CardContent, CardMedia, Divider, styled } from "@mui/material";
 import { IRecipeCardProps } from "./home.types";
 import { RecipeStat } from "../recipeStats";
+import { baseTheme } from "../../styles/theme";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -84,6 +85,6 @@ const StyledH3 = styled("h3")({
 const StyledH4 = styled("h4")({
   //SubHeading
   fontSize: 15,
-  color: "#5c5c5c",
+  color: baseTheme.colors.darkGrey,
   marginBottom: 8,
 });

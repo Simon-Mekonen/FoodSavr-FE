@@ -1,5 +1,6 @@
 import { Box, styled } from "@mui/system";
 import { FsIcon } from "./fsIcon";
+import { baseTheme } from "../styles/theme";
 
 export interface IInnerContentProps {
   type: string;
@@ -44,7 +45,7 @@ const InnerContent: React.FC<IInnerContentProps> = ({ type, text }) => {
 
 const StyledStatLabel = styled("p")({
   fontSize: 12,
-  color: "#9e9e9e",
+  color: baseTheme.colors.lightGrey,
   fontWeight: 500,
   margin: 0,
 });
@@ -54,7 +55,7 @@ const StyledStatValue = styled("span")({
   fontWeight: 900,
   marginBottom: 4,
   marginTop: 4,
-  color: "#000",
+  color: baseTheme.colors.black,
 });
 
 const StyledBoxBorder = styled(Box)({
@@ -71,7 +72,7 @@ const StyledBoxBorder = styled(Box)({
     position: "absolute",
     transform: "translateY(-50%)",
     borderRight: "1px dotted",
-    backgroundColor: "rgba(0, 0, 0, 0.08)",
-    borderColor: "#fd7463",
+    backgroundColor: baseTheme.colors.dark,
+    borderColor: baseTheme.colors.pink,
   },
 });

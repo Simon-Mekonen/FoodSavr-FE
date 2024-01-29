@@ -67,7 +67,7 @@
 .Icon-recipe-close:active {
   transform: scale(0.8);
 }
-.Stat-label {
+/* .Stat-label {
   font-size: 12px;
   color: #9e9e9e;
   margin: 0;
@@ -78,7 +78,7 @@
   margin-bottom: 4px;
   margin-top: 4px;
   color: #000;
-}
+} */
 .Recipe-hero {
   position: relative;
   padding: 0;
@@ -129,7 +129,7 @@
 .Recipe-check-icon {
   color: #fd7463;
 }
-.Recipe-info-border {
+/* .Recipe-info-border {
   position: relative;
 }
 .Recipe-info-border:not(:last-of-type)::after {
@@ -144,8 +144,7 @@
   border-right: 1px dotted;
   background-color: rgba(0, 0, 0, 0.08);
   border-color: #fd7463;
-  height: 50%;
-}
+} */
 
 /* END Recipe */
 

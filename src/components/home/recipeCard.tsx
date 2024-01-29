@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box /*palette */ } from "@mui/system";
 import { Card, CardContent, CardMedia, Divider, styled } from "@mui/material";
 import { IRecipeCardProps } from "./home.types";
-import { FSIcon } from "../FSicon";
+import { RecipeStat } from "../recipeStats";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -35,40 +35,25 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
         </CardContent>
         <Divider style={{ background: "#57807f38" }} />
         <Box display={"flex"}>
-          <Box p={2} flex={"auto"} /*className={borderedGridStyles.item}*/>
-            <StyledStatLabel>
-              <FSIcon type="Question"></FSIcon>
-            </StyledStatLabel>
+          {/* className={borderedGridStyles.item}*/}
 
-            <StyledStatLabel>
-              {/*TODO: change PORT. text?*/}
-              <StyledStatValue>
-                {recipeCardData.portions} PORT.
-              </StyledStatValue>{" "}
-            </StyledStatLabel>
-          </Box>
-          <Box p={2} flex={"auto"}>
-            <StyledStatLabel>
-              <FSIcon type="Clock"></FSIcon>
-            </StyledStatLabel>
+          <RecipeStat
+            type={"Question"}
+            text={recipeCardData.portions + " PORT"}
+            border={false}
+          />
 
-            <StyledStatLabel>
-              <StyledStatValue>
-                {recipeCardData.cookingTime} MIN
-              </StyledStatValue>
-            </StyledStatLabel>
-          </Box>
-          <Box p={2} flex={"auto"}>
-            <StyledStatLabel>
-              <FSIcon type="Heart"></FSIcon>
-            </StyledStatLabel>
+          <RecipeStat
+            type={"Clock"}
+            text={recipeCardData.cookingTime + " MIN"}
+            border={false}
+          />
 
-            <StyledStatLabel>
-              <StyledStatValue>
-                {recipeCardData.matches}/{ingredientCount} RÅVAROR
-              </StyledStatValue>
-            </StyledStatLabel>
-          </Box>
+          <RecipeStat
+            type={"Clock"}
+            text={recipeCardData.matches + "/" + ingredientCount + " RÅVAROR"}
+            border={false}
+          />
         </Box>
       </StyledCard>
     </Box>
@@ -101,18 +86,4 @@ const StyledH4 = styled("h4")({
   fontSize: 15,
   color: "#5c5c5c",
   marginBottom: 8,
-});
-
-const StyledStatLabel = styled("p")({
-  fontSize: 12,
-  color: "grey",
-  fontWeight: 500,
-  margin: 0,
-  padding: 8,
-});
-
-const StyledStatValue = styled("p")({
-  fontSize: 20,
-  fontWeight: "bold",
-  marginBottom: 4,
 });

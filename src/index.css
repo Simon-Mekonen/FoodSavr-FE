@@ -98,13 +98,6 @@
   padding: 20px;
   text-align: center;
 }
-.Recipe-info {
-  /* background-color: rgb(229 245 243); */
-  border-top: 1px dotted #fd7463;
-  border-bottom: 1px dotted #fd7463;
-  margin-left: -22px;
-  margin-right: -22px;
-}
 .Recipe-steps,
 .Recipe-check-step {
   text-align: left;

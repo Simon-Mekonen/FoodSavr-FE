@@ -1,6 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import { IRecipeInfoProps } from "./recipeInfo.types";
+import { IRecipeInfoProps } from "../RecipeInfo/recipeInfo.types";
 import { RecipeStat } from "../recipeStats";
 
 export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
@@ -12,7 +12,7 @@ export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
   return (
     <div className="Recipe-info">
       <Container maxWidth={"sm"} sx={{ textAlign: "center" }}>
-        <Box className="Recipe-info-box" display={"flex"}>
+        <Box display={"flex"}>
           <Grid container>
             <RecipeStat
               type={"Question"}
@@ -40,3 +40,12 @@ export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
     </div>
   );
 };
+
+// TODO: add the below styles
+// .Recipe-info {
+//   /* background-color: rgb(229 245 243); */
+//   border-top: 1px dotted #fd7463;
+//   border-bottom: 1px dotted #fd7463;
+//   margin-left: -22px;
+//   margin-right: -22px;
+// }

@@ -1,7 +1,7 @@
-import { Box, styled } from "@mui/system";
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
 import { RecipeCard } from "../RecipeCard/recipeCard";
 import { IRecipeCardListProps } from "../../Pages/Home/home.types";
+import { StyledBox } from "./recipeCardList.styles";
 
 export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
   recipeCardDataList,
@@ -25,11 +25,3 @@ export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
     )
   );
 };
-
-const StyledBox = styled(Box)({
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  justifyContent: "center",
-  alignItems: "flex-start",
-});

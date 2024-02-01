@@ -6,25 +6,23 @@ import { Grid } from "@mui/material";
 export interface IInnerContentProps {
   type: string;
   text: string;
+  value: number | string;
 }
 
 export interface IRecipeStatProps extends IInnerContentProps {
   border: boolean;
 }
 
-// TODO: Add so that the PORT, MIN, RÅVAROR is not bold
-
-export const RecipeStat = ({ type, text, border }: IRecipeStatProps) => {
-  console.log(type, text, border);
+export const RecipeStat = ({ type, value, text, border }: IRecipeStatProps) => {
   return (
     <Grid item xs={4}>
       {border ? (
         <StyledBoxBorder>
-          <InnerContent type={type} text={text} />
+          <InnerContent type={type} value={value} text={text} />
         </StyledBoxBorder>
       ) : (
         <Box p={2} flex="auto">
-          <InnerContent type={type} text={text} />
+          <InnerContent type={type} text={text} value={value} />
         </Box>
       )}
     </Grid>
@@ -32,32 +30,30 @@ export const RecipeStat = ({ type, text, border }: IRecipeStatProps) => {
 };
 
 //TODO: stop using so many Stat...., should it be just regular div???
-const InnerContent: React.FC<IInnerContentProps> = ({ type, text }) => {
+const InnerContent: React.FC<IInnerContentProps> = ({ type, text, value }) => {
   return (
     <>
-      <StyledStatLabel>
+      <div>
         <FsIcon type={type} />
-      </StyledStatLabel>
+      </div>
       <StyledStatLabel>
-        <StyledStatValue>{text}</StyledStatValue>
+        <StyledStatValue>{value}</StyledStatValue> {text}
       </StyledStatLabel>
     </>
   );
 };
 
 const StyledStatLabel = styled("p")({
-  fontSize: 12,
-  color: baseTheme.colors.lightGrey,
+  fontSize: 16,
+  color: baseTheme.colors.black,
+  marginBottom: 4,
+  marginTop: 4,
   fontWeight: 500,
   margin: 0,
 });
 
 const StyledStatValue = styled("span")({
-  fontSize: 16,
-  fontWeight: 900,
-  marginBottom: 4,
-  marginTop: 4,
-  color: baseTheme.colors.black,
+  fontWeight: 700,
 });
 
 const StyledBoxBorder = styled(Box)({

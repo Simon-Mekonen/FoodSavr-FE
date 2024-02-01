@@ -46,19 +46,22 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
           <Grid container>
             <RecipeStat
               type={"Question"}
-              text={recipeCardData.portions + " PORT"}
+              value={recipeCardData.portions}
+              text={"Port"}
               border={false}
             />
 
             <RecipeStat
               type={"Clock"}
-              text={recipeCardData.cookingTime + " MIN"}
+              value={recipeCardData.cookingTime}
+              text={"MIN"}
               border={false}
             />
 
             <RecipeStat
               type={"Heart"}
-              text={recipeCardData.matches + "/" + ingredientCount + " RÅVAROR"}
+              value={recipeCardData.matches + "/" + ingredientCount}
+              text={"RÅVAROR"}
               border={false}
             />
           </Grid>

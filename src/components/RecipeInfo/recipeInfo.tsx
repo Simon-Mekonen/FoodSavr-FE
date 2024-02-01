@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { IRecipeInfoProps } from "./recipeInfo.types";
 import { RecipeStat } from "../recipeStats";
@@ -13,23 +13,28 @@ export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
     <div className="Recipe-info">
       <Container maxWidth={"sm"} sx={{ textAlign: "center" }}>
         <Box className="Recipe-info-box" display={"flex"}>
-          <RecipeStat
-            type={"Question"}
-            text={portions + " PORT"}
-            border={true}
-          />
+          <Grid container>
+            <RecipeStat
+              type={"Question"}
+              value={portions}
+              text={"PORT"}
+              border={true}
+            />
 
-          <RecipeStat
-            type={"Clock"}
-            text={cookingTime + " MIN"}
-            border={true}
-          />
+            <RecipeStat
+              type={"Clock"}
+              value={cookingTime}
+              text={" MIN"}
+              border={true}
+            />
 
-          <RecipeStat
-            type={"Heart"}
-            text={ingredientMatches + "/" + inputIngredient + " RÅVAROR"}
-            border={true}
-          />
+            <RecipeStat
+              type={"Heart"}
+              value={ingredientMatches + " / " + inputIngredient}
+              text={"RÅVAROR"}
+              border={true}
+            />
+          </Grid>
         </Box>
       </Container>
     </div>

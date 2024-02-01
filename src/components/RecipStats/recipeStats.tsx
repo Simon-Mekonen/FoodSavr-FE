@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/system";
-import { FsIcon } from "./fsIcon";
-import { baseTheme } from "../styles/theme";
+import { FsIcon } from "../FsIcon/fsIcon";
+import { baseTheme } from "../../styles/theme";
 import { Grid } from "@mui/material";
 
 export interface IInnerContentProps {

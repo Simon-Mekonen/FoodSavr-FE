@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { FaRegClock, FaRegHeart, FaRegQuestionCircle } from "react-icons/fa";
 import { IconType } from "react-icons";
-import { baseTheme } from "../styles/theme";
+import { baseTheme } from "../../styles/theme";
 
+// TODO: fix folder with styles and types
 export const StyledIcon = styled("div")({
   color: baseTheme.colors.pink,
   fontSize: "20px",

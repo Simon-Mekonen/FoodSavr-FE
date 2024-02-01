@@ -1,6 +1,6 @@
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
 import { RecipeCard } from "../RecipeCard/recipeCard";
-import { IRecipeCardListProps } from "../../Pages/Home/home.types";
+import { IRecipeCardListProps } from "./recipeCardList.types";
 import { StyledBox } from "./recipeCardList.styles";
 
 export const RecipeCardList: React.FC<IRecipeCardListProps> = ({

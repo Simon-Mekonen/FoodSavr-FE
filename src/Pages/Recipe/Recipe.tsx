@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/system";
 import { testDataRecipe } from "../../../testData";
-import { RecipeInfo } from "../../components/RecipeCardList/recipeInfo";
+import { RecipeInfo } from "../../components/RecipeInfo/recipeInfo";
 import { Ingredients } from "../../components/Ingredient/ingredient";
 import { Steps } from "../../components/Steps/steps";
 import { useEffect, useState } from "react";

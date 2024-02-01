@@ -7,6 +7,7 @@ import { IIngredient } from "../../API/API.types";
 import { testDataIngredients } from "../../../testData";
 import { useEffect } from "react";
 
+// TODO: fix styles and types?
 export const SearchBar = () => {
   const [inputValue, setInputValue] = React.useState<IIngredient[]>([]);
 

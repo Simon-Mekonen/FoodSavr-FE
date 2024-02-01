@@ -3,6 +3,7 @@ import { FaCheckCircle, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { IStepsProps, IRecipeStepsDoneProps } from "./steps.types";
 
+// TODO: Add styles
 export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
   const [steps, setSteps] = useState<IRecipeStepsDoneProps[]>([]);
 

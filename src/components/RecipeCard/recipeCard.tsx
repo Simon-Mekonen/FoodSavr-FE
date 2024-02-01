@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Box /*palette */ } from "@mui/system";
 import { CardContent, CardMedia, Divider, Grid } from "@mui/material";
-import { RecipeStat } from "../recipeStats";
+import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
 import {
   boxSize,

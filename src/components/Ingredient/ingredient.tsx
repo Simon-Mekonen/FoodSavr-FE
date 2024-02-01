@@ -1,6 +1,7 @@
 import { Box, Stack } from "@mui/system";
 import { IngredientProps } from "./ingredient.types";
 
+//TODO: fix styled components here
 export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
   return (
     <>

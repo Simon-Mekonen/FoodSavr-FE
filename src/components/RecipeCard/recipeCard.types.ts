@@ -5,8 +5,3 @@ export interface IRecipeCardProps {
   ingredientCount: number;
   key: string | number;
 }
-
-export interface IRecipeCardListProps {
-  recipeCardDataList: IRecipeBlob[];
-  ingredientCount: number;
-}

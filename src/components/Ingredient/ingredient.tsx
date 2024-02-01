@@ -1,5 +1,5 @@
 import { Box, Stack } from "@mui/system";
-import { IngredientProps } from "./recipe.types";
+import { IngredientProps } from "./ingredient.types";
 
 export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
   return (
@@ -18,7 +18,9 @@ export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
                 sx={{ textAlign: "left", py: 1 }}
               >
                 <p>
-                  <strong>{ingredient.quantity}</strong>{" "}
+                  <strong>
+                    {ingredient.quantity} {ingredient.measurement}
+                  </strong>{" "}
                   {ingredient.replacement}{" "}
                   <span className="Replaced-text">
                     (ersätter {ingredient.originalIngredient})
@@ -32,7 +34,9 @@ export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
                 sx={{ textAlign: "left", py: 1 }}
               >
                 <p>
-                  <strong>{ingredient.quantity}</strong>{" "}
+                  <strong>
+                    {ingredient.quantity} {ingredient.measurement}
+                  </strong>{" "}
                   {ingredient.originalIngredient}
                 </p>
               </div>

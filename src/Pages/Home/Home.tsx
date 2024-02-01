@@ -1,5 +1,5 @@
-import { RecipeCardList } from "../components/home/recipeCardList";
-import { SearchBar } from "../components/home/searchbar";
+import { RecipeCardList } from "../../components/RecipeCardList/recipeCardList";
+import { SearchBar } from "../../components/Searchbar/searchbar";
 
 const Home = () => {
   return (

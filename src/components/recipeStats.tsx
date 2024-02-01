@@ -1,6 +1,7 @@
 import { Box, styled } from "@mui/system";
 import { FsIcon } from "./fsIcon";
 import { baseTheme } from "../styles/theme";
+import { Grid } from "@mui/material";
 
 export interface IInnerContentProps {
   type: string;
@@ -16,7 +17,7 @@ export interface IRecipeStatProps extends IInnerContentProps {
 export const RecipeStat = ({ type, text, border }: IRecipeStatProps) => {
   console.log(type, text, border);
   return (
-    <>
+    <Grid item xs={4}>
       {border ? (
         <StyledBoxBorder>
           <InnerContent type={type} text={text} />
@@ -26,10 +27,11 @@ export const RecipeStat = ({ type, text, border }: IRecipeStatProps) => {
           <InnerContent type={type} text={text} />
         </Box>
       )}
-    </>
+    </Grid>
   );
 };
 
+//TODO: stop using so many Stat...., should it be just regular div???
 const InnerContent: React.FC<IInnerContentProps> = ({ type, text }) => {
   return (
     <>

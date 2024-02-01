@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
-import { IRecipeInfoProps } from "./recipe.types";
+import { IRecipeInfoProps } from "./recipeInfo.types";
 import { RecipeStat } from "../recipeStats";
 
 export const RecipeInfo: React.FC<IRecipeInfoProps> = ({

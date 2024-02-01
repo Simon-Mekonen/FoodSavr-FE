@@ -1,27 +1,13 @@
 import { Box, Container } from "@mui/system";
-import { styled } from "@mui/material";
-import { testDataRecipe } from "../../testData";
-import { RecipeInfo } from "../components/recipe/recipeInfo";
-import { Ingredients } from "../components/recipe/ingredient";
-import { Steps } from "../components/recipe/steps";
-import {
-  IIngredientConverter,
-  IRecipe,
-  IRecipeIngredient,
-  IRecipeSteps,
-} from "../API/API.types";
+import { testDataRecipe } from "../../../testData";
+import { RecipeInfo } from "../../components/RecipeInfo/recipeInfo";
+import { Ingredients } from "../../components/Ingredient/ingredient";
+import { Steps } from "../../components/Steps/steps";
 import { useEffect, useState } from "react";
-import { addIngredientReplacements } from "../utils/converterUtils";
-import { IRecipeIngredientComplete } from "./Recipe.types";
-import { FaRegTimesCircle } from "react-icons/fa";
-import { baseTheme } from "../styles/theme";
-
-interface IRecipeProps {
-  recipe: IRecipe;
-  recipeSteps: IRecipeSteps[];
-  recipeIngredient: IRecipeIngredient[];
-  ingredientConverter: IIngredientConverter[];
-}
+import { addIngredientReplacements } from "../../utils/converterUtils";
+import { IRecipeIngredientComplete, IRecipeProps } from "./recipe.types";
+import { baseTheme } from "../../styles/theme";
+import { StyledCloseButton } from "./recipe.styles";
 
 const Recipe: React.FC<IRecipeProps> = ({
   recipe,
@@ -88,29 +74,4 @@ const Recipe: React.FC<IRecipeProps> = ({
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const StyledCloseButton = ({ onClickFunc }) => {
-  return (
-    <StyledCloseIcon onClick={onClickFunc}>
-      <button
-        tabIndex={0}
-        aria-label="Close"
-        role="button"
-        onClick={onClickFunc}
-      ></button>
-    </StyledCloseIcon>
-  );
-};
-
-const StyledCloseIcon = styled(FaRegTimesCircle)({
-  position: "absolute",
-  right: "20px",
-  top: "20px",
-  fontSize: "30px",
-  cursor: "pointer",
-  transition: "transform 0.15s ease-in",
-  color: baseTheme.colors.white,
-  borderRadius: "30px",
-});
 export default Recipe;

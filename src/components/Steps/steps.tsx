@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/system";
 import { FaCheckCircle, FaRegArrowAltCircleRight } from "react-icons/fa";
-import { IRecipeStepsDoneProps, IStepsProps } from "./recipe.types";
 import { useEffect, useState } from "react";
+import { IStepsProps, IRecipeStepsDoneProps } from "./steps.types";
 
 export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
   const [steps, setSteps] = useState<IRecipeStepsDoneProps[]>([]);

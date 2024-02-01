@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/system";
 import { testDataIngredients, testDataRecipeMatches } from "../../../testData";
-import { RecipeCard } from "./recipeCard";
-import { IRecipeCardListProps } from "./home.types";
+import { RecipeCard } from "../RecipeCard/recipeCard";
+import { IRecipeCardListProps } from "../../Pages/Home/home.types";
 
 export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
   recipeCardDataList,

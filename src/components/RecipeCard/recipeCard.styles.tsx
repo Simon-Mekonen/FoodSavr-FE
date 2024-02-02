@@ -14,14 +14,6 @@ export const StyledCard = styled(Card)({
   maxWidth: 356,
   textAlign: "center",
 });
-export const StyledH3 = styled("h3")({
-  //Heading
-  fontSize: 18,
-  fontWeight: "bold",
-  letterSpacing: "0.5px",
-  marginTop: 10,
-  marginBottom: 8,
-});
 
 export const StyledDescriptionP = styled("h4")({
   //SubHeading

@@ -28,7 +28,7 @@
   }
 }
 
-.Ingredients {
+/* .Ingredients {
   background-color: #efefef;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -36,21 +36,21 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-}
-.Recipe-paper {
+} */
+/* .Recipe-paper {
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 4px;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: rgba(0, 0, 0, 0.6);
-}
-.Replaced {
+} */
+/* .Replaced {
   color: #ffffff !important;
   background-color: #5b968f !important;
 }
 .Replaced-text {
   color: #2a3d3d !important;
-}
+} */
 .Matched {
   text-decoration: line-through;
 }

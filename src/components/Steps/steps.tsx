@@ -1,7 +1,8 @@
-import { Box, Stack } from "@mui/system";
+import { Box, Stack, color, styled } from "@mui/system";
 import { FaCheckCircle, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { IStepsProps, IRecipeStepsDoneProps } from "./steps.types";
+import { baseTheme } from "../../styles/theme";
 
 // TODO: Add styles
 export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
@@ -56,3 +57,14 @@ export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
     </Box>
   );
 };
+
+export const StyledSteps = styled("p")({
+  textAlign: "left",
+  padding: "15px 8px",
+  cursor: "pointer",
+});
+
+export const StyledStepsChecked = styled(StyledSteps)({
+  backgroundColor: baseTheme.colors.checkedBackground,
+  textDecoration: "line-through",
+});

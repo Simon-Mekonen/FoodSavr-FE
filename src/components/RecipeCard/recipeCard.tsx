@@ -3,12 +3,8 @@ import { Box /*palette */ } from "@mui/system";
 import { CardContent, CardMedia, Divider, Grid } from "@mui/material";
 import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
-import {
-  boxSize,
-  StyledCard,
-  StyledDescriptionP,
-  StyledH3,
-} from "./recipeCard.styles";
+import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
+import { StyledH3 } from "../../styles/theme";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,

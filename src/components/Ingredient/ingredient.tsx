@@ -1,13 +1,13 @@
 import { Box, Stack } from "@mui/system";
 import { IngredientProps } from "./ingredient.types";
-import { StyledH3 } from "../../styles/theme";
+import { StyledH2 } from "../../styles/theme";
 import { ReplacedIngredient, Ingredient } from "./ingredient.styles";
 
 export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
   return (
     <>
       <Box>
-        <StyledH3>Ingredienser</StyledH3>
+        <StyledH2>Ingredienser</StyledH2>
         <Stack
           direction="row"
           sx={{ flexWrap: "wrap", alignItems: "flex-start" }}

@@ -4,7 +4,7 @@ import { baseTheme } from "../../styles/theme";
 
 export const StyledIngredient = styled("p")({
   textAlign: "left",
-  backgroundColor: baseTheme.colors.checkedBackground,
+  backgroundColor: baseTheme.colors.lightGrey,
   marginBottom: "10px",
   marginRight: "10px",
   padding: "8px",
@@ -37,7 +37,6 @@ export const Ingredient: React.FC<IRecipeIngredientComplete> = ({
   );
 };
 
-// TODO: styling ok?
 export const ReplacedIngredient: React.FC<IRecipeIngredientComplete> = ({
   quantity,
   measurement,
@@ -50,7 +49,9 @@ export const ReplacedIngredient: React.FC<IRecipeIngredientComplete> = ({
         {quantity} {measurement}
       </strong>{" "}
       {originalIngredient}{" "}
-      <span color={baseTheme.colors.replacedText}>ersätter {replacement}</span>
+      <span color={baseTheme.colors.replacedText}>
+        (ersätter {replacement})
+      </span>
     </StyledReplacement>
   );
 };

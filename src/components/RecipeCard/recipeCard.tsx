@@ -4,7 +4,7 @@ import { CardContent, CardMedia, Divider, Grid } from "@mui/material";
 import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
 import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
-import { StyledH3 } from "../../styles/theme";
+import { StyledH2 } from "../../styles/theme";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -26,9 +26,7 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
                 : "https://i1.wp.com/www.careandshare-ut.org/wp-content/uploads/2020/09/image-coming-soon.jpg?ssl=1"
             }
           />
-          <StyledH3 /*className={styles.heading}*/>
-            {recipeCardData.name}
-          </StyledH3>
+          <StyledH2>{recipeCardData.name}</StyledH2>
           <StyledDescriptionP /*className={styles.subheader}*/>
             {recipeDescription.length > 150
               ? `${recipeDescription.substring(0, 120)}...`

@@ -15,7 +15,7 @@ export const StyledCard = styled(Card)({
   textAlign: "center",
 });
 
-export const StyledDescriptionP = styled("h4")({
+export const StyledDescriptionP = styled("p")({
   //SubHeading
   fontSize: 15,
   color: baseTheme.colors.darkGrey,

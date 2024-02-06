@@ -1,8 +1,9 @@
-import { Box, Stack, color, styled } from "@mui/system";
+import { Box, Stack } from "@mui/system";
+import styled from "styled-components";
 import { FaCheckCircle, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { IStepsProps, IRecipeStepsDoneProps } from "./steps.types";
-import { baseTheme } from "../../styles/theme";
+import { StyledH2, baseTheme } from "../../styles/theme";
 
 // TODO: Add styles
 export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
@@ -24,33 +25,23 @@ export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
   };
 
   return (
-    <Box sx={{ my: 2 }}>
-      <h3>Tillaga</h3>
-      <Stack spacing={2}>
+    <Box>
+      <StyledH2>Tillaga</StyledH2>
+      <Stack>
         {steps.map((step, key) => {
           return (
-            <div
-              className={
-                step.done
-                  ? "Recipe-check-step Recipe-paper"
-                  : "Recipe-steps Recipe-paper"
-              }
-              key={key}
-              sx={{ textAlign: "left", py: 2 }}
+            <Container
               onClick={() => {
                 updateStep(key);
               }}
             >
-              {step.done ? (
-                <FaCheckCircle key={key} className="Recipe-check-icon" />
-              ) : (
-                <FaRegArrowAltCircleRight
-                  key={key}
-                  className="Recipe-step-icon"
-                />
-              )}
-              <span className="Recipe-step-num">{step.row}:</span> {step.text}
-            </div>
+              <Step
+                done={step.done}
+                row={step.row}
+                text={step.text}
+                key={key}
+              />
+            </Container>
           );
         })}
       </Stack>
@@ -58,13 +49,61 @@ export const Steps: React.FC<IStepsProps> = ({ recipeSteps }) => {
   );
 };
 
-export const StyledSteps = styled("p")({
+export const Step = ({
+  done,
+  row,
+  text,
+  key,
+}: {
+  done: boolean | undefined;
+  row: number;
+  text?: string;
+  key: number;
+}) => {
+  return done ? (
+    <>
+      <StepIcon color={baseTheme.colors.lightGrey}>
+        <FaRegArrowAltCircleRight key={key} />
+      </StepIcon>
+      <StepChecked>
+        <StepNo>{row}:</StepNo> {text}
+      </StepChecked>
+    </>
+  ) : (
+    <>
+      <StepIcon color={baseTheme.colors.pink}>
+        <FaCheckCircle key={key} />
+      </StepIcon>
+      <StepText>
+        <StepNo>{row}:</StepNo> {text}
+      </StepText>
+    </>
+  );
+};
+
+export const Container = styled("div")({
+  display: "flex",
+  alignItems: "center",
+});
+
+export const StepIcon = styled("div")(({ color }) => ({
+  fontSize: "20px",
+  color: color,
+  verticalAlign: "middle",
+  marginRight: "6px",
+}));
+
+export const StepText = styled("p")({
   textAlign: "left",
-  padding: "15px 8px",
+  paddingLeft: "8px",
   cursor: "pointer",
 });
 
-export const StyledStepsChecked = styled(StyledSteps)({
-  backgroundColor: baseTheme.colors.checkedBackground,
+export const StepChecked = styled(StepText)({
+  backgroundColor: baseTheme.colors.lightGrey,
   textDecoration: "line-through",
+});
+
+export const StepNo = styled("span")({
+  fontWeight: 900,
 });

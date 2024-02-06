@@ -6,6 +6,7 @@ import ErrorPage from "./Pages/Error/Error";
 import RecipePage from "./Pages/Recipe/Recipe";
 import HomePage from "./Pages/Home/Home";
 import { IRecipe } from "./API/API.types";
+import { GlobalStyle } from "./styles/theme";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <GlobalStyle /> {/* Include GlobalStyle within React.StrictMode */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );

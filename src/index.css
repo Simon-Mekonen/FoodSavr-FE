@@ -1,8 +1,8 @@
 /* Recipe */
-.Recipe {
+/* .Recipe {
   overflow: hidden;
-}
-.Animation-slideup {
+} */
+/* .Animation-slideup {
   animation-timing-function: ease-in;
   -webkit-animation-duration: 10s;
   animation-duration: 0.4s;
@@ -26,7 +26,7 @@
   100% {
     transform: translateY(0);
   }
-}
+} */
 
 /* .Ingredients {
   background-color: #efefef;
@@ -51,10 +51,10 @@
 .Replaced-text {
   color: #2a3d3d !important;
 } */
-.Matched {
+/* .Matched {
   text-decoration: line-through;
-}
-.Icon-recipe-close {
+} */
+/* .Icon-recipe-close {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -63,10 +63,10 @@
   transition: transform 0.15s ease-in;
   color: #fff;
   border-radius: 30px;
-}
-.Icon-recipe-close:active {
+} */
+/* .Icon-recipe-close:active {
   transform: scale(0.8);
-}
+} */
 /* .Stat-label {
   font-size: 12px;
   color: #9e9e9e;
@@ -79,7 +79,7 @@
   margin-top: 4px;
   color: #000;
 } */
-.Recipe-hero {
+/* .Recipe-hero {
   position: relative;
   padding: 0;
   max-width: 900px;
@@ -87,41 +87,40 @@
   margin: 0 auto;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
-}
+} */
 /* .Recipe-description {
   position: relative;
   top: -100px;
   border-radius: 50px 50px 0 0;
 } */
-.Recipe-title {
+/* .Recipe-title {
   margin: 0;
   padding: 20px;
   text-align: center;
-}
-.Recipe-steps,
+} */
+/* .Recipe-steps,
 .Recipe-check-step {
   text-align: left;
   padding: 15px 8px;
-  text-align: left;
   cursor: pointer;
-}
-.Recipe-check-step {
+} */
+/* .Recipe-check-step {
   background-color: #efefef;
   text-decoration: line-through;
-}
-.Recipe-step-num {
+} */
+/* .Recipe-step-num {
   font-weight: 900;
-}
-.Recipe-step-icon,
+} */
+/* .Recipe-step-icon,
 .Recipe-check-icon {
   font-size: 20px;
   color: #c7c7c7;
   vertical-align: middle;
   margin-right: 6px;
-}
-.Recipe-check-icon {
+} */
+/* .Recipe-check-icon {
   color: #fd7463;
-}
+} */
 /* .Recipe-info-border {
   position: relative;
 }
@@ -181,7 +180,7 @@ const useStyles = makeStyles(({ palette }) => ({
 /* END recipeCard */
 
 /* recipeCardList */
-.Animation-from-left {
+/* .Animation-from-left {
   cursor: pointer;
   animation-name: bounceInRight;
   animation-duration: 0.6s;
@@ -202,7 +201,7 @@ const useStyles = makeStyles(({ palette }) => ({
   100% {
     transform: translateY(0);
   }
-}
+} */
 /* END recipeCardList */
 
 /* Footer */
@@ -323,7 +322,7 @@ const useStyles = makeStyles(({ palette }) => ({
 /* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@438&display=swap"); */
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"); */
 
-body {
+/* body {
   margin: 0;
   font-family: "Open Sans", sans-serif, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
@@ -343,7 +342,7 @@ h4,
 h5,
 h6 {
   font-family: "Noto Serif Display", serif;
-}
+} */
 
 /*Search */
 .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused

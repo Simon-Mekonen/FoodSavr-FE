@@ -1,10 +1,11 @@
 import { RecipeCardList } from "../../components/RecipeCardList/recipeCardList";
 import { SearchBar } from "../../components/Searchbar/searchbar";
+import { StyledH1 } from "../Recipe/recipe.styles";
 
 const Home = () => {
   return (
     <>
-      <h1>FoodSavr</h1>
+      <StyledH1>FoodSavr</StyledH1>
       <SearchBar />
       <RecipeCardList />
     </>

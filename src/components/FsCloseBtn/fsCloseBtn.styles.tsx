@@ -28,7 +28,7 @@ export const FsCloseIcon = styled(FaRegTimesCircle)({
   transition: "transform 0.15s ease-in",
   color: baseTheme.colors.white,
   borderRadius: "30px",
-  //TODO: change this
+  //TODO: change this?
   active: {
     transform: "scale(0.8)",
   },

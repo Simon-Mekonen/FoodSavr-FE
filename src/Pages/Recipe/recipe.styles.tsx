@@ -1,11 +1,39 @@
 import { Box } from "@mui/system";
 import { keyframes, styled } from "styled-components";
+import { baseTheme } from "../../styles/theme";
 
 export const StyledH1 = styled("h1")({
   margin: 0,
-  padding: "20px",
-  textAlign: "center",
+  padding: "10px 0 10px 10px",
+  textAlign: "left",
+  fontFamily: "Pacifico, cursive",
+  backgroundColor: baseTheme.colors.pink,
+  background: `
+  -webkit-linear-gradient(
+    to right,
+    ${baseTheme.colors.pink} 0%,
+    ${baseTheme.colors.pink} 19%,
+    ${baseTheme.colors.greenDark} 17%,
+    ${baseTheme.colors.greenDark} 100%,
+  ),
+  -moz-linear-gradient(
+    to right,
+    ${baseTheme.colors.pink} 0%,
+    ${baseTheme.colors.pink} 19%,
+    ${baseTheme.colors.greenDark} 17%,
+    ${baseTheme.colors.greenDark} 100%,
+  ),
+  linear-gradient(
+    to right,
+    ${baseTheme.colors.pink} 0%,
+    ${baseTheme.colors.pink} 19%,
+    ${baseTheme.colors.greenDark} 17%,
+    ${baseTheme.colors.greenDark} 100%,
+  )`,
+  "-webkit-background-clip": "text",
+  "-webkit-text-fill-color": "transparent",
 });
+// #57807f 100%
 
 //TODO: Fix so keyframes work
 const bounceInUpKeyframes = keyframes`

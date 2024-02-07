@@ -6,6 +6,7 @@ export const boxSize = {
   width: "356px",
   mt: "20px",
   mx: "10px",
+  flexBasis: "25%",
 };
 
 export const StyledCard = styled(Card)({

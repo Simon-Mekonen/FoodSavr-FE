@@ -4,6 +4,8 @@ export const baseTheme = {
   colors: {
     pink: "#fd7463",
     green: "#5b968f",
+    greenDark: "#5b968f",
+    cyan: "#e5f5f3",
     white: "#ffffff",
     lightGrey: "#efefef",
     darkGrey: "#5c5c5c",
@@ -25,11 +27,12 @@ export const StyledH2 = styled("h2")({
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: "Open Sans", sans-serif, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw
 }
 
 code {

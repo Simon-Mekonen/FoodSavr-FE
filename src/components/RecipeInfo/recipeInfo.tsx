@@ -2,8 +2,7 @@ import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { IRecipeInfoProps } from "./recipeInfo.types";
 import { RecipeStat } from "../RecipStats/recipeStats";
-import styled from "styled-components";
-import { baseTheme } from "../../styles/theme";
+import { StyledRecipeBox } from "./recipeInfo.Styles";
 
 export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
   portions,
@@ -13,7 +12,7 @@ export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
 }) => {
   return (
     <StyledRecipeBox>
-      <Container maxWidth={"sm"} sx={{ textAlign: "center" }}>
+      <Container maxWidth={"sm"}>
         <Box display={"flex"}>
           <Grid container>
             <RecipeStat
@@ -42,12 +41,3 @@ export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
     </StyledRecipeBox>
   );
 };
-
-//TODO: Check negative numbers!
-export const StyledRecipeBox = styled(Box)({
-  backgroundColor: baseTheme.colors.cyan,
-  borderTop: `1px dotted ${baseTheme.colors.pink}`,
-  borderBottom: `1px dotted ${baseTheme.colors.pink}`,
-  marginLeft: "-22px",
-  marginRight: "-22px",
-});

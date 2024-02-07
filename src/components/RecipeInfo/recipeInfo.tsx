@@ -2,7 +2,7 @@ import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { IRecipeInfoProps } from "./recipeInfo.types";
 import { RecipeStat } from "../RecipStats/recipeStats";
-import { StyledRecipeBox } from "./recipeInfo.Styles";
+import { StyledRecipeBox } from "./recipeInfo.styles";
 
 export const RecipeInfo: React.FC<IRecipeInfoProps> = ({
   portions,

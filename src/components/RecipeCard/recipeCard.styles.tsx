@@ -14,6 +14,7 @@ export const StyledCard = styled(Card)({
   minWidth: 256,
   maxWidth: 356,
   textAlign: "center",
+  cursor: "pointer",
 });
 
 export const StyledDescriptionP = styled("p")({

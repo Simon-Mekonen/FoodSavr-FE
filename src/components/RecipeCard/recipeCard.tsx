@@ -7,6 +7,7 @@ import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
 import { ingredientIdState } from "../../store/recoilStore";
 import { useRecoilValue } from "recoil";
+import { generatePath } from "react-router-dom";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -17,10 +18,12 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
     recipeCardData;
   const ingredientIds = useRecoilValue(ingredientIdState);
 
-  const handleRecipeSelection = (ingredients: number[], recipe: number) => {
-    // Update url
-    // Update
-    console.log(ingredients, recipe);
+  const handleRecipeSelection = (ingredientIds: number[], recipeId: number) => {
+    generatePath("/recipe/:recipeId/:ingredientIds", {
+      recipeId: String(recipeId),
+      ingredientIds: String(ingredientIds),
+    });
+    console.log();
   };
 
   return (

@@ -7,18 +7,18 @@ export const addIngredientReplacements = (
 ): IRecipeIngredientComplete[] => {
   const updatedIngredients: IRecipeIngredientComplete[] = [...ingredients];
   // Loop through each conversion in the converter array
-  converter.forEach((conv) => {
+  converter.forEach((converterItem) => {
     // Loop through each ingredient in the ingredients array
-    updatedIngredients.forEach((ingr) => {
+    updatedIngredients.forEach((ingredientItem) => {
       // Check if the original ingredient in the conversion matches the current ingredient
       // and if there is a replacement specified in the conversion
       if (
-        conv.originalIngredient?.toLocaleLowerCase() ===
-          ingr.originalIngredient?.toLocaleLowerCase() &&
-        conv.replacementIngredient?.toLocaleLowerCase()
+        converterItem.originalIngredient?.toLocaleLowerCase() ===
+          ingredientItem.originalIngredient?.toLocaleLowerCase() &&
+        converterItem.replacementIngredient?.toLocaleLowerCase()
       ) {
         // Update the current ingredient's replacement with the one specified in the conversion
-        ingr.replacement = conv.replacementIngredient;
+        ingredientItem.replacement = converterItem.replacementIngredient;
       }
     });
   });

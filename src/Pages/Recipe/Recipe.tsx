@@ -1,38 +1,29 @@
 import { Box, Container } from "@mui/system";
-import { testDataRecipe } from "../../../testData";
 import { RecipeInfo } from "../../components/RecipeInfo/recipeInfo";
 import { Ingredients } from "../../components/Ingredient/ingredient";
 import { Steps } from "../../components/Steps/steps";
-import { useEffect, useState } from "react";
-import { addIngredientReplacements } from "../../utils/converterUtils";
-import { IRecipeIngredientComplete, IRecipeProps } from "./recipe.types";
 import { baseTheme } from "../../styles/theme";
 import { FsCloseButton } from "../../components/FsCloseBtn/fsCloseBtn.styles";
 import { StyledRecipeBox, StyledRecipeHero, StyledH1 } from "./recipe.styles";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  completeIngredientState,
+  ingredientIdState,
+  recipeState,
+} from "../../store/recoilStore";
 
-const Recipe: React.FC<IRecipeProps> = ({
-  recipe,
-  recipeSteps,
-  recipeIngredient,
-  ingredientConverter,
-}) => {
-  const [recipeIngredients, setRecipeIngredients] = useState<
-    IRecipeIngredientComplete[]
-  >([]);
-  // Temporary
-  recipe = testDataRecipe.recipe;
-  recipeSteps = testDataRecipe.recipeSteps;
-  recipeIngredient = testDataRecipe.recipeIngredient;
-  ingredientConverter = testDataRecipe.ingredientConverter;
-  const inputIngredient = [1, 2, 3, 4, 5];
+const Recipe: React.FC = () => {
+  const recipeIngredients = useRecoilValue(completeIngredientState);
+  const [completeRecipe] = useRecoilState(recipeState);
+  let inputIngredient = useRecoilValue(ingredientIdState);
 
-  useEffect(() => {
-    const updatedRecipeIngredient = addIngredientReplacements(
-      recipeIngredient,
-      ingredientConverter
-    );
-    setRecipeIngredients(updatedRecipeIngredient);
-  }, [recipeIngredient, ingredientConverter]);
+  // temporary set of values!
+  inputIngredient = inputIngredient.length ? inputIngredient : [1, 2, 3, 4, 5];
+
+  const recipe = completeRecipe.recipe; //TODO: Save to state and not here
+  const recipeSteps = completeRecipe.recipeSteps; //TODO: Save to state and not here
+  const recipeIngredient = completeRecipe.recipeIngredient; //TODO: Save to state and not here
+  const ingredientConverter = completeRecipe.ingredientConverter; //TODO: Save to state and not here
 
   return (
     <StyledRecipeBox>

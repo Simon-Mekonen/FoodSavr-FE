@@ -1,6 +1,8 @@
 import { atom, selector } from "recoil";
 import { testDataIngredients, testDataRecipe } from "../../testData";
 import { IIngredient, IRecipeComplete } from "../API/API.types";
+import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
+import { addIngredientReplacements } from "../utils/converterUtils";
 
 export const ingredientOptionsState = atom<IIngredient[]>({
   key: "ingredientOptionsState",
@@ -24,4 +26,15 @@ export const ingredientIdState = selector<number[]>({
 export const recipeState = atom<IRecipeComplete>({
   key: "recipeState",
   default: testDataRecipe as IRecipeComplete,
+});
+
+export const completeIngredientState = selector<IRecipeIngredientComplete[]>({
+  key: "completeIngredientState",
+  get: ({ get }) => {
+    const recipe = get(recipeState);
+    const ingredients = recipe.recipeIngredient;
+    const converter = recipe.ingredientConverter;
+
+    return addIngredientReplacements(ingredients, converter);
+  },
 });

@@ -11,6 +11,7 @@ import {
   ingredientIdState,
   recipeState,
 } from "../../store/recoilStore";
+import { useEffect } from "react";
 
 const Recipe: React.FC = () => {
   const [completeRecipe] = useRecoilState(recipeState);
@@ -21,6 +22,9 @@ const Recipe: React.FC = () => {
   const steps = completeRecipe.recipeSteps;
   const ingredientMatches = completeRecipe.ingredientConverter.length;
 
+  useEffect(() => {
+    console.log("inputIngredient.length: ", inputIngredient.length);
+  });
   return (
     <StyledRecipeBox>
       <StyledRecipeHero>

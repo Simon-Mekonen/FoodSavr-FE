@@ -8,7 +8,7 @@ import HomePage from "./Pages/Home/Home";
 import { RecoilRoot } from "recoil";
 import { GlobalStyle } from "./styles/theme";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,

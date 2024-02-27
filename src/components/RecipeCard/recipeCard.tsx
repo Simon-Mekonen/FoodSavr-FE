@@ -7,7 +7,7 @@ import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
 import { ingredientIdState } from "../../store/recoilStore";
 import { useRecoilValue } from "recoil";
-import { generatePath } from "react-router-dom";
+import { Link, generatePath } from "react-router-dom";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
@@ -23,56 +23,62 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
       recipeId: String(recipeId),
       ingredientIds: String(ingredientIds),
     });
-    console.log();
+    console.log("test");
   };
 
   return (
     <Box sx={boxSize} key={key}>
       <StyledCard onClick={() => handleRecipeSelection(ingredientIds, id)}>
-        <CardContent>
-          <CardMedia
-            style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
-            // classes={wideCardMediaStyles}
-            image={
-              imgLink
-                ? imgLink
-                : "https://i1.wp.com/www.careandshare-ut.org/wp-content/uploads/2020/09/image-coming-soon.jpg?ssl=1"
-            }
-          />
-          <StyledH2>{name}</StyledH2>
-          <StyledDescriptionP /*className={styles.subheader}*/>
-            {description!.length > 150
-              ? `${description!.substring(0, 120)}...`
-              : description}
-          </StyledDescriptionP>
-        </CardContent>
-        <Divider style={{ background: "#57807f38" }} />
-        <Box display={"flex"}>
-          {/* className={borderedGridStyles.item}*/}
-
-          <Grid container>
-            <RecipeStat
-              type={"Question"}
-              value={portions}
-              text={"Port"}
-              border={false}
+        <Link
+          // to={`/recipe/recipeId?${id}/ingredientIds?${ingredientIds}`}
+          to={`/recipe`}
+          style={{ textDecoration: "none" }}
+        >
+          <CardContent>
+            <CardMedia
+              style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
+              // classes={wideCardMediaStyles}
+              image={
+                imgLink
+                  ? imgLink
+                  : "https://i1.wp.com/www.careandshare-ut.org/wp-content/uploads/2020/09/image-coming-soon.jpg?ssl=1"
+              }
             />
+            <StyledH2>{name}</StyledH2>
+            <StyledDescriptionP /*className={styles.subheader}*/>
+              {description!.length > 150
+                ? `${description!.substring(0, 120)}...`
+                : description}
+            </StyledDescriptionP>
+          </CardContent>
+          <Divider style={{ background: "#57807f38" }} />
+          <Box display={"flex"}>
+            {/* className={borderedGridStyles.item}*/}
 
-            <RecipeStat
-              type={"Clock"}
-              value={cookingTime}
-              text={"MIN"}
-              border={false}
-            />
+            <Grid container>
+              <RecipeStat
+                type={"Question"}
+                value={portions}
+                text={"Port"}
+                border={false}
+              />
 
-            <RecipeStat
-              type={"Heart"}
-              value={matches + "/" + ingredientCount}
-              text={"RÅVAROR"}
-              border={false}
-            />
-          </Grid>
-        </Box>
+              <RecipeStat
+                type={"Clock"}
+                value={cookingTime}
+                text={"MIN"}
+                border={false}
+              />
+
+              <RecipeStat
+                type={"Heart"}
+                value={matches + "/" + ingredientCount}
+                text={"RÅVAROR"}
+                border={false}
+              />
+            </Grid>
+          </Box>
+        </Link>
       </StyledCard>
     </Box>
   );

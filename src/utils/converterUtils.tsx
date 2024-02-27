@@ -5,8 +5,13 @@ export const addIngredientReplacements = (
   ingredients: IRecipeIngredient[],
   converter: IIngredientConverter[]
 ): IRecipeIngredientComplete[] => {
-  const updatedIngredients: IRecipeIngredientComplete[] = [...ingredients];
   try {
+    const updatedIngredients: IRecipeIngredientComplete[] = ingredients.map(
+      (ingredient) => ({
+        ...ingredient,
+      })
+    );
+
     // Loop through each conversion in the converter array
     converter.forEach((converterItem) => {
       // Loop through each ingredient in the ingredients array

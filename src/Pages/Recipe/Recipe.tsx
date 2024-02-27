@@ -13,17 +13,13 @@ import {
 } from "../../store/recoilStore";
 
 const Recipe: React.FC = () => {
-  const recipeIngredients = useRecoilValue(completeIngredientState);
   const [completeRecipe] = useRecoilState(recipeState);
-  let inputIngredient = useRecoilValue(ingredientIdState);
+  const ingredients = useRecoilValue(completeIngredientState);
+  const inputIngredient = useRecoilValue(ingredientIdState);
 
-  // temporary set of values!
-  inputIngredient = inputIngredient.length ? inputIngredient : [1, 2, 3, 4, 5];
-
-  const recipe = completeRecipe.recipe; //TODO: Save to state and not here
-  const recipeSteps = completeRecipe.recipeSteps; //TODO: Save to state and not here
-  const recipeIngredient = completeRecipe.recipeIngredient; //TODO: Save to state and not here
-  const ingredientConverter = completeRecipe.ingredientConverter; //TODO: Save to state and not here
+  const recipe = completeRecipe.recipe;
+  const steps = completeRecipe.recipeSteps;
+  const ingredientMatches = completeRecipe.ingredientConverter.length;
 
   return (
     <StyledRecipeBox>
@@ -50,11 +46,11 @@ const Recipe: React.FC = () => {
           <RecipeInfo
             portions={recipe.portions}
             cookingTime={recipe.cookingTime}
-            ingredientMatches={ingredientConverter.length}
+            ingredientMatches={ingredientMatches}
             inputIngredient={inputIngredient.length}
           />
-          <Ingredients ingredients={recipeIngredients} />
-          <Steps recipeSteps={recipeSteps} />
+          <Ingredients ingredients={ingredients} />
+          <Steps recipeSteps={steps} />
         </Box>
       </Container>
     </StyledRecipeBox>

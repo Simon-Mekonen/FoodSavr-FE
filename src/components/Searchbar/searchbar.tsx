@@ -6,11 +6,11 @@ import { baseTheme } from "../../styles/theme";
 import { useRecoilState } from "recoil";
 import {
   ingredientOptionsState,
-  ingredientState,
+  ingredientSearchState,
 } from "../../store/recoilStore";
 
 export const SearchBar = () => {
-  const [inputValue, setInputValue] = useRecoilState(ingredientState);
+  const [inputValue, setInputValue] = useRecoilState(ingredientSearchState);
   const [ingredientOptions] = useRecoilState(ingredientOptionsState);
 
   return (

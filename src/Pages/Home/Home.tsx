@@ -3,13 +3,13 @@ import { RecipeCardList } from "../../components/RecipeCardList/recipeCardList";
 import { SearchBar } from "../../components/Searchbar/searchbar";
 import { StyledH1 } from "../Recipe/recipe.styles";
 import {
-  ingredientState,
-  recipeCardDataListState,
+  ingredientSearchState,
+  recipeBlobListState,
 } from "../../store/recoilStore";
 
 const Home = () => {
-  const [recipeCardDataList] = useRecoilState(recipeCardDataListState);
-  const [inputIngredients] = useRecoilState(ingredientState);
+  const [recipeCardDataList] = useRecoilState(recipeBlobListState);
+  const [inputIngredients] = useRecoilState(ingredientSearchState);
   return (
     <>
       <StyledH1>FoodSavr</StyledH1>

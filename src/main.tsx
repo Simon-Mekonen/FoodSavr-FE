@@ -4,14 +4,14 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./Pages/Error/Error";
 import RecipePage from "./Pages/Recipe/Recipe";
-import HomePage from "./Pages/Home/Home";
 import { RecoilRoot } from "recoil";
 import { GlobalStyle } from "./styles/theme";
+import Home from "./Pages/Home/Home";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <Home />,
     errorElement: <ErrorPage />,
   },
   {

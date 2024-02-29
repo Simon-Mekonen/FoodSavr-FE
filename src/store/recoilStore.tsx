@@ -1,12 +1,15 @@
 import { atom, selector } from "recoil";
-import { testDataIngredients, testDataRecipeMatches } from "../../testData";
+import { testDataRecipeMatches } from "../../testData";
 import { IIngredient, IRecipeBlob, IRecipeComplete } from "../API/API.types";
 import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
 import { addIngredientReplacements } from "../utils/converterUtils";
+import { getIngredients } from "../API/IngredientAPI";
 
-export const ingredientOptionsState = atom<IIngredient[]>({
+export const ingredientOptionsState = selector<IIngredient[]>({
   key: "ingredientOptionsState",
-  default: testDataIngredients as IIngredient[],
+  get: async () => {
+    return await getIngredients();
+  },
 });
 
 export const ingredientSearchState = atom<IIngredient[]>({

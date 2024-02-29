@@ -3,7 +3,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 import { Stack } from "@mui/system";
 import { baseTheme } from "../../styles/theme";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   ingredientOptionsState,
   ingredientSearchState,
@@ -11,7 +11,7 @@ import {
 
 export const SearchBar = () => {
   const [inputValue, setInputValue] = useRecoilState(ingredientSearchState);
-  const [ingredientOptions] = useRecoilState(ingredientOptionsState);
+  const ingredientOptions = useRecoilValue(ingredientOptionsState);
 
   return (
     <Stack sx={stackStyling}>

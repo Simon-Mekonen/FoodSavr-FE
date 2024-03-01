@@ -8,7 +8,7 @@ import { StyledRecipeBox, StyledRecipeHero, StyledH1 } from "./recipe.styles";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   completeIngredientState,
-  ingredientIdState,
+  ingredientSearchIdsState,
   recipeState,
 } from "../../store/recoilStore";
 
@@ -16,7 +16,7 @@ const Recipe: React.FC = () => {
   // create an url for this page, to share it
   const [completeRecipe] = useRecoilState(recipeState);
   const ingredients = useRecoilValue(completeIngredientState);
-  const inputIngredient = useRecoilValue(ingredientIdState);
+  const inputIngredient = useRecoilValue(ingredientSearchIdsState);
 
   const recipe = completeRecipe.recipe;
   const steps = completeRecipe.recipeSteps;

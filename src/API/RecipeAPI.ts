@@ -14,7 +14,7 @@ export const getRecipeMatches = async (
     ingredients
   );
   if (!response.ok) {
-    console.log("TESTDATA");
+    console.log("TESTDATA testDataRecipeMatches");
     return testDataRecipeMatches;
   }
   return response;
@@ -30,7 +30,7 @@ export const getRecipe = async (
     ingredients
   );
   if (!response.ok) {
-    console.log("TESTDATA");
+    console.log("TESTDATA testDataRecipe");
     return testDataRecipe;
   }
   return response;

@@ -7,6 +7,7 @@ import RecipePage from "./Pages/Recipe/Recipe";
 import { RecoilRoot } from "recoil";
 import { GlobalStyle } from "./styles/theme";
 import Home from "./Pages/Home/Home";
+// import HomeContainer from "./Pages/Home/HomeContainer";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "recipe",
+    path: "/recipe",
     element: <RecipePage />,
     errorElement: <ErrorPage />,
   },

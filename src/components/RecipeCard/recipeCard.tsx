@@ -5,7 +5,7 @@ import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
 import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
-import { ingredientIdState } from "../../store/recoilStore";
+import { ingredientSearchIdsState } from "../../store/recoilStore";
 import { useRecoilValue } from "recoil";
 import { generatePath, useNavigate } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
 }) => {
   const { id, name, description, imgLink, portions, cookingTime, matches } =
     recipeCardData;
-  const ingredientIds = useRecoilValue(ingredientIdState);
+  const ingredientIds = useRecoilValue(ingredientSearchIdsState);
 
   const navigate = useNavigate();
 

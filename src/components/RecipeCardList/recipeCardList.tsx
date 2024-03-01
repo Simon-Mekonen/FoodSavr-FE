@@ -1,11 +1,15 @@
 import { RecipeCard } from "../RecipeCard/recipeCard";
-import { IRecipeCardListProps } from "./recipeCardList.types";
 import { StyledBox } from "./recipeCardList.styles";
+import { useRecoilValue } from "recoil";
+import {
+  recipeBlobListState,
+  ingredientSearchState,
+} from "../../store/recoilStore";
 
-export const RecipeCardList: React.FC<IRecipeCardListProps> = ({
-  recipeCardDataList,
-  ingredientCount,
-}) => {
+export const RecipeCardList = () => {
+  const recipeCardDataList = useRecoilValue(recipeBlobListState);
+  const ingredientCount = useRecoilValue(ingredientSearchState).length;
+
   return (
     recipeCardDataList && (
       <StyledBox>

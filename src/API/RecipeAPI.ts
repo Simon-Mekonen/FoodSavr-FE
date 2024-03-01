@@ -5,7 +5,7 @@ import { testDataRecipe, testDataRecipeMatches } from "../../testData";
 const recipeMatchesroute = "recipematches/";
 const recipeRoute = "recipe/";
 
-export const getRecipeMatches = async (
+export const fetchRecipeMatches = async (
   ingredients: number[]
 ): Promise<IRecipeBlob[]> => {
   const response = await api(
@@ -20,7 +20,7 @@ export const getRecipeMatches = async (
   return response;
 };
 
-export const getRecipe = async (
+export const fetchRecipe = async (
   recipeId: number,
   ingredients: number[]
 ): Promise<IRecipeComplete> => {

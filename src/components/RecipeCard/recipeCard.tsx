@@ -5,8 +5,11 @@ import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
 import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
-import { ingredientSearchIdsState } from "../../store/recoilStore";
-import { useRecoilValue } from "recoil";
+import {
+  currentRecipeIDState,
+  ingredientSearchIdsState,
+} from "../../store/recoilStore";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { generatePath, useNavigate } from "react-router-dom";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
@@ -17,16 +20,19 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
   const { id, name, description, imgLink, portions, cookingTime, matches } =
     recipeCardData;
   const ingredientIds = useRecoilValue(ingredientSearchIdsState);
-
+  const currentRecipeID = useSetRecoilState(currentRecipeIDState);
   const navigate = useNavigate();
 
   const handleRecipeSelection = (ingredientIds: number[], recipeId: number) => {
+    // Update state
+    currentRecipeID(recipeId);
+    // Create URL:
     generatePath("/recipe/:recipeId/:ingredientIds", {
       recipeId: String(recipeId),
       ingredientIds: String(ingredientIds),
     });
 
-    navigate("/recipe");
+    // navigate("/recipe");
   };
 
   return (

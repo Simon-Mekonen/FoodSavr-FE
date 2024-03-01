@@ -3,11 +3,10 @@ import { IIngredient, IRecipeBlob, IRecipeComplete } from "../API/API.types";
 import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
 import { addIngredientReplacements } from "../utils/converterUtils";
 import { fetchIngredients } from "../API/IngredientAPI";
-import { fetchRecipeMatches } from "../API/RecipeAPI";
-import { testDataRecipe2 } from "../../testData";
+import { fetchRecipe, fetchRecipeMatches } from "../API/RecipeAPI";
 
 export const ingredientOptionsState = atom<IIngredient[]>({
-  key: "ingredientOptionsState",
+  key: "ingredientOptions",
   default: await fetchIngredients(),
 });
 
@@ -34,17 +33,28 @@ export const recipeBlobListState = selector<IRecipeBlob[]>({
   },
 });
 
-export const recipeState = atom<IRecipeComplete>({
-  key: "recipeState",
-  default: testDataRecipe2,
-  // default: await fetchRecipe(2, [1, 2, 3, 4]),
-  // effects: [local],
+// Get the recipe
+
+export const currentRecipeIDState = atom<number>({
+  key: "CurrentRecipeID",
+  default: 0,
 });
+
+export const recipeState = selector<IRecipeComplete>({
+  key: "recipeStateQuery",
+  get: async ({ get }) => {
+    const ingredientIds = get(ingredientSearchIdsState);
+    const recipeID = get(currentRecipeIDState);
+    const result = await fetchRecipe(recipeID, ingredientIds);
+    return result;
+  },
+});
+// END: Get the recipe
 
 export const completeIngredientState = selector<IRecipeIngredientComplete[]>({
   key: "completeIngredientState",
   get: ({ get }) => {
-    const recipe = get(recipeState);
+    const recipe: IRecipeComplete = get(recipeState);
     const ingredients = recipe.recipeIngredient;
     const converter = recipe.ingredientConverter;
 

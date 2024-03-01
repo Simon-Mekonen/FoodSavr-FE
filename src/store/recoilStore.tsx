@@ -2,12 +2,13 @@ import { atom, selector } from "recoil";
 import { IIngredient, IRecipeBlob, IRecipeComplete } from "../API/API.types";
 import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
 import { addIngredientReplacements } from "../utils/converterUtils";
-import { getIngredients } from "../API/IngredientAPI";
-import { getRecipeMatches } from "../API/RecipeAPI";
+import { fetchIngredients } from "../API/IngredientAPI";
+import { fetchRecipeMatches } from "../API/RecipeAPI";
+import { testDataRecipe2 } from "../../testData";
 
 export const ingredientOptionsState = atom<IIngredient[]>({
   key: "ingredientOptionsState",
-  default: await getIngredients(),
+  default: await fetchIngredients(),
 });
 
 export const ingredientSearchState = atom<IIngredient[]>({
@@ -28,14 +29,15 @@ export const recipeBlobListState = selector<IRecipeBlob[]>({
   key: "recipeBlobListState",
   get: async ({ get }) => {
     const ids = get(ingredientSearchIdsState);
-    const result = await getRecipeMatches(ids);
+    const result = await fetchRecipeMatches(ids);
     return result;
   },
 });
 
 export const recipeState = atom<IRecipeComplete>({
   key: "recipeState",
-  default: {} as IRecipeComplete,
+  default: testDataRecipe2,
+  // default: await fetchRecipe(2, [1, 2, 3, 4]),
   // effects: [local],
 });
 

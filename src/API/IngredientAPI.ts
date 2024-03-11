@@ -4,9 +4,10 @@ import { testDataIngredients } from "../../testData";
 
 export const fetchIngredients = async (): Promise<IIngredient[]> => {
   const response = await api("ingredients/", AxiosMethod.Get);
-  if (!response.ok) {
-    console.log("TESTDATA: testDataIngredients");
+  if (response !== null) {
+    return response;
+  } else {
+    console.warn("Using testdata due to response from server: Ingredients");
     return testDataIngredients;
   }
-  return response;
 };

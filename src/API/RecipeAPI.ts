@@ -13,11 +13,14 @@ export const fetchRecipeMatches = async (
     AxiosMethod.Post,
     ingredients
   );
-  if (!response.ok) {
-    console.log("TESTDATA testDataRecipeMatches");
+  if (response !== null) {
+    return response;
+  } else {
+    console.warn(
+      "Using testdata due to response from server: Recipe Card/Matches"
+    );
     return testDataRecipeMatches;
   }
-  return response;
 };
 
 export const fetchRecipe = async (
@@ -29,9 +32,10 @@ export const fetchRecipe = async (
     AxiosMethod.Post,
     ingredients
   );
-  if (!response.ok) {
-    console.log("TESTDATA testDataRecipe");
+  if (response !== null) {
+    return response;
+  } else {
+    console.warn("Using testdata due to response from server: Recipe");
     return testDataRecipe;
   }
-  return response;
 };

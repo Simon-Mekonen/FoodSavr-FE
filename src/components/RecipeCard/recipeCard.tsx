@@ -2,7 +2,6 @@ import * as React from "react";
 import { Box /*palette */ } from "@mui/system";
 import { CardContent, CardMedia, Divider, Grid } from "@mui/material";
 import { RecipeStat } from "../RecipStats/recipeStats";
-import { IRecipeCardProps } from "./recipeCard.types";
 import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
 import {
@@ -11,11 +10,16 @@ import {
 } from "../../store/recoilStore";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { generatePath, useNavigate } from "react-router-dom";
+import { IRecipeBlob } from "../../API/API.types";
 
-export const RecipeCard: React.FC<IRecipeCardProps> = ({
+export const RecipeCard = ({
   recipeCardData,
   ingredientCount,
   key,
+}: {
+  recipeCardData: IRecipeBlob;
+  ingredientCount: number;
+  key: string | number;
 }) => {
   const { id, name, description, imgLink, portions, cookingTime, matches } =
     recipeCardData;

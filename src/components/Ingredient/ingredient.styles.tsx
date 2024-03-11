@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { IRecipeIngredientComplete } from "../../Pages/Recipe/recipe.types";
 import { baseTheme } from "../../styles/theme";
+import { IRecipeIngredientComplete } from "../../API/API.types";
 
 export const StyledIngredient = styled("p")({
   textAlign: "left",

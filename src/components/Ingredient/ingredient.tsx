@@ -1,9 +1,13 @@
 import { Box, Stack } from "@mui/system";
-import { IngredientProps } from "./ingredient.types";
 import { StyledH2 } from "../../styles/theme";
 import { ReplacedIngredient, Ingredient } from "./ingredient.styles";
+import { IRecipeIngredientComplete } from "../../API/API.types";
 
-export const Ingredients: React.FC<IngredientProps> = ({ ingredients }) => {
+export const Ingredients = ({
+  ingredients,
+}: {
+  ingredients: IRecipeIngredientComplete[];
+}) => {
   return (
     <>
       <Box>

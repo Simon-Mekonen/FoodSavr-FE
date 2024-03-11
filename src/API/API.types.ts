@@ -29,6 +29,10 @@ export interface IRecipeIngredient {
   originalIngredient?: string;
 }
 
+export interface IRecipeIngredientComplete extends IRecipeIngredient {
+  replacement?: string | undefined;
+}
+
 export interface IRecipeSteps {
   row: number;
   text?: string;

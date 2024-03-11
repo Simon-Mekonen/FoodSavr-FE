@@ -21,6 +21,7 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
     recipeCardData;
   const ingredientIds = useRecoilValue(ingredientSearchIdsState);
   const currentRecipeID = useSetRecoilState(currentRecipeIDState);
+
   const navigate = useNavigate();
 
   const handleRecipeSelection = (ingredientIds: number[], recipeId: number) => {
@@ -32,11 +33,14 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
       ingredientIds: String(ingredientIds),
     });
 
-    // navigate("/recipe");
+    const url = `/recipe/${recipeId}/${ingredientIds}`;
+
+    navigate(url);
   };
 
   return (
     <Box sx={boxSize} key={key}>
+      {/* <Link to={href}> */}
       <StyledCard onClick={() => handleRecipeSelection(ingredientIds, id)}>
         <CardContent>
           <CardMedia
@@ -83,6 +87,7 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
           </Grid>
         </Box>
       </StyledCard>
+      {/* </Link> */}
     </Box>
   );
 };

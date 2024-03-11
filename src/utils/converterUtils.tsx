@@ -34,3 +34,12 @@ export const addIngredientReplacements = (
     return ingredients;
   }
 };
+
+export const convertStringToNumArray = (input: string): number[] => {
+  const arraySeparator = ",";
+  if (input.includes(arraySeparator)) {
+    return input.split(",").map((id) => Number(id));
+  } else {
+    return [];
+  }
+};

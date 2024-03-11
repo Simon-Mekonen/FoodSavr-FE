@@ -28,6 +28,6 @@ export const api = async (
     }
   } catch (error) {
     console.error(error);
-    return error;
+    return null;
   }
 };

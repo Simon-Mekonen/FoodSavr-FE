@@ -1,5 +1,8 @@
-import { IIngredientConverter, IRecipeIngredient } from "../API/API.types";
-import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
+import {
+  IIngredientConverter,
+  IRecipeIngredient,
+  IRecipeIngredientComplete,
+} from "../API/API.types";
 
 export const addIngredientReplacements = (
   ingredients: IRecipeIngredient[],

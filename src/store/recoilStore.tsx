@@ -1,6 +1,10 @@
 import { atom, selector } from "recoil";
-import { IIngredient, IRecipeBlob, IRecipeComplete } from "../API/API.types";
-import { IRecipeIngredientComplete } from "../Pages/Recipe/recipe.types";
+import {
+  IIngredient,
+  IRecipeBlob,
+  IRecipeComplete,
+  IRecipeIngredientComplete,
+} from "../API/API.types";
 import { addIngredientReplacements } from "../utils/converterUtils";
 import { fetchIngredients } from "../API/IngredientAPI";
 import { fetchRecipe, fetchRecipeMatches } from "../API/RecipeAPI";

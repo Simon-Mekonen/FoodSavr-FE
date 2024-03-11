@@ -5,7 +5,7 @@ import { testDataRecipe, testDataRecipeMatches } from "../../testData";
 const recipeMatchesroute = "recipematches/";
 const recipeRoute = "recipe/";
 
-export const getRecipeMatches = async (
+export const fetchRecipeMatches = async (
   ingredients: number[]
 ): Promise<IRecipeBlob[]> => {
   const response = await api(
@@ -13,14 +13,17 @@ export const getRecipeMatches = async (
     AxiosMethod.Post,
     ingredients
   );
-  if (!response.ok) {
-    console.log("TESTDATA");
+  if (response !== null) {
+    return response;
+  } else {
+    console.warn(
+      "Using testdata due to response from server: Recipe Card/Matches"
+    );
     return testDataRecipeMatches;
   }
-  return response;
 };
 
-export const getRecipe = async (
+export const fetchRecipe = async (
   recipeId: number,
   ingredients: number[]
 ): Promise<IRecipeComplete> => {
@@ -29,9 +32,10 @@ export const getRecipe = async (
     AxiosMethod.Post,
     ingredients
   );
-  if (!response.ok) {
-    console.log("TESTDATA");
+  if (response !== null) {
+    return response;
+  } else {
+    console.warn("Using testdata due to response from server: Recipe");
     return testDataRecipe;
   }
-  return response;
 };

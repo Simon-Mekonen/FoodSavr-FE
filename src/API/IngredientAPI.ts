@@ -2,11 +2,12 @@ import { AxiosMethod, IIngredient } from "./API.types";
 import { api } from "./configs/axiosConfig";
 import { testDataIngredients } from "../../testData";
 
-export const getIngredients = async (): Promise<IIngredient[]> => {
+export const fetchIngredients = async (): Promise<IIngredient[]> => {
   const response = await api("ingredients/", AxiosMethod.Get);
-  if (!response.ok) {
-    console.log("TESTDATA");
+  if (response !== null) {
+    return response.data;
+  } else {
+    console.warn("Using testdata due to response from server: Ingredients");
     return testDataIngredients;
   }
-  return response;
 };

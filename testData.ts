@@ -406,6 +406,63 @@ export const testDataRecipe: IRecipeComplete = {
   ],
 };
 
+export const testDataRecipe2: IRecipeComplete = {
+  recipe: {
+    id: 2,
+    name: "Testar",
+    description:
+      "Description Från Arla - Sugen på något värmande? Laga boeuf bourguignon, även kallad burgundisk köttgryta, som värmer både kropp och själ! Den mustiga grytan med högrev, rött vin, sidfläsk, lök, champinjon och morot serveras med krämigt pot...",
+    imgLink:
+      "https://images.unsplash.com/photo-1608500218882-986df81d55fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+    portions: 6,
+    cookingTime: 60,
+  },
+  recipeSteps: [
+    {
+      row: 1,
+      text: "Skär köttet i ca 5x5 cm stora bitar. Skär sidfläsket i små tärningar. Skala schalottenlök, vitlök och morötter. Skär schalottenlök och morötter i stora bitar. Skiva vitlöken.\n",
+    },
+    {
+      row: 2,
+      text: "Fräs schalottenlök, vitlök, morötter, hälften av fläsket och tomatpurén i en stor gryta i hälften av smöret tills löken mjuknar.",
+    },
+  ],
+  recipeIngredient: [
+    {
+      ingredientId: 1,
+      quantity: 400,
+      measurement: "g",
+      originalIngredient: "champinjoner",
+    },
+    {
+      ingredientId: 56,
+      quantity: 1,
+      measurement: "kg",
+      originalIngredient: "högrev",
+    },
+    {
+      ingredientId: 3,
+      quantity: 2,
+      measurement: "msk",
+      originalIngredient: "konc kalvfond",
+    },
+    {
+      ingredientId: 60,
+      quantity: 3,
+      measurement: "st",
+      originalIngredient: "lagerblad",
+    },
+  ],
+  ingredientConverter: [
+    {
+      categoryId: 12,
+      ingredientId: 47,
+      originalIngredient: "vetemjöl",
+      replacementIngredient: "rågmjöl",
+    },
+  ],
+};
+
 export const testDataRecipeMatches: IRecipeBlob[] = [
   {
     matches: 3,

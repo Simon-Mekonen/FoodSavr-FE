@@ -1,27 +1,25 @@
-import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
-import { Stack, styled } from "@mui/system";
-import { IIngredient } from "../../API/API.types";
-import { testDataIngredients } from "../../../testData";
-import { useEffect } from "react";
+import { Stack } from "@mui/system";
 import { baseTheme } from "../../styles/theme";
+import { useRecoilState } from "recoil";
+import { ingredientSearchState } from "../../store/recoilStore";
+import { IIngredient } from "../../API/API.types";
 
-// TODO: fix styles and types?
-export const SearchBar = () => {
-  const [inputValue, setInputValue] = React.useState<IIngredient[]>([]);
-
-  useEffect(() => {
-    console.log(inputValue);
-  }, [inputValue]);
+export const SearchBar = ({
+  ingredientOptions,
+}: {
+  ingredientOptions: IIngredient[];
+}) => {
+  const [inputValue, setInputValue] = useRecoilState(ingredientSearchState);
 
   return (
     <Stack sx={stackStyling}>
       <Autocomplete
         autoComplete={true}
         multiple
-        options={testDataIngredients}
+        options={ingredientOptions}
         value={inputValue}
         onChange={(event, newValue) => setInputValue(newValue)}
         getOptionLabel={(option) => option.name}
@@ -85,39 +83,39 @@ const searchLabel = {
 //   margin-bottom: 4px;
 // `;
 
-const Root = styled("div")(
-  ({ theme }) => `
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 400;
-  border-radius: 8px;
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[500]};
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 4px ${
-    theme.palette.mode === "dark" ? "rgba(0,0,0, 0.5)" : "rgba(0,0,0, 0.05)"
-  };
-  display: flex;
-  gap: 5px;
-  padding-right: 5px;
-  overflow: hidden;
-  width: 320px;
+// const Root = styled("div")(
+//   ({ theme }) => `
+//   font-family: 'IBM Plex Sans', sans-serif;
+//   font-weight: 400;
+//   border-radius: 8px;
+//   color: ${theme.palette.mode === "dark" ? grey[300] : grey[500]};
+//   background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+//   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+//   box-shadow: 0px 2px 4px ${
+//     theme.palette.mode === "dark" ? "rgba(0,0,0, 0.5)" : "rgba(0,0,0, 0.05)"
+//   };
+//   display: flex;
+//   gap: 5px;
+//   padding-right: 5px;
+//   overflow: hidden;
+//   width: 320px;
 
-  &.Mui-focused {
-    border-color: ${blue[400]};
-    box-shadow: 0 0 0 3px ${
-      theme.palette.mode === "dark" ? blue[600] : blue[200]
-    };
-  }
+//   &.Mui-focused {
+//     border-color: ${blue[400]};
+//     box-shadow: 0 0 0 3px ${
+//       theme.palette.mode === "dark" ? blue[600] : blue[200]
+//     };
+//   }
 
-  &:hover {
-    border-color: ${blue[400]};
-  }
+//   &:hover {
+//     border-color: ${blue[400]};
+//   }
 
-  &:focus-visible {
-    outline: 0;
-  }
-`
-);
+//   &:focus-visible {
+//     outline: 0;
+//   }
+// `
+// );
 
 // const Input = styled("input")(
 //   ({ theme }) => `

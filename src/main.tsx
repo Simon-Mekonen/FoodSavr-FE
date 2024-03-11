@@ -4,33 +4,39 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./Pages/Error/Error";
 import RecipePage from "./Pages/Recipe/Recipe";
-import HomePage from "./Pages/Home/Home";
-import { IRecipe } from "./API/API.types";
+import { RecoilRoot } from "recoil";
 import { GlobalStyle } from "./styles/theme";
+import Home from "./Pages/Home/Home";
+import { DebugObserver } from "./store/debug";
+// import HomeContainer from "./Pages/Home/HomeContainer";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <Home />,
     errorElement: <ErrorPage />,
   },
   {
     path: "recipe",
-    element: (
-      <RecipePage
-        recipe={{} as IRecipe}
-        recipeSteps={[]}
-        recipeIngredient={[]}
-        ingredientConverter={[]}
-      />
-    ),
+    element: <RecipePage />,
+    errorElement: <ErrorPage />,
+    loader: async () => {
+      console.log("LOADING");
+    },
+  },
+  {
+    path: "recipe/:recipeId/:ingredientIds",
+    element: <RecipePage />,
     errorElement: <ErrorPage />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalStyle /> {/* Include GlobalStyle within React.StrictMode */}
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <DebugObserver />
+      <GlobalStyle /> {/* Include GlobalStyle within React.StrictMode */}
+      <RouterProvider router={router} />
+    </RecoilRoot>
   </React.StrictMode>
 );

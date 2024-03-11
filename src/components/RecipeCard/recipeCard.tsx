@@ -5,32 +5,58 @@ import { RecipeStat } from "../RecipStats/recipeStats";
 import { IRecipeCardProps } from "./recipeCard.types";
 import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
+import {
+  currentRecipeIDState,
+  ingredientSearchIdsState,
+} from "../../store/recoilStore";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { generatePath, useNavigate } from "react-router-dom";
 
 export const RecipeCard: React.FC<IRecipeCardProps> = ({
   recipeCardData,
   ingredientCount,
   key,
 }) => {
-  const recipeDescription = recipeCardData.description!;
+  const { id, name, description, imgLink, portions, cookingTime, matches } =
+    recipeCardData;
+  const ingredientIds = useRecoilValue(ingredientSearchIdsState);
+  const currentRecipeID = useSetRecoilState(currentRecipeIDState);
+
+  const navigate = useNavigate();
+
+  const handleRecipeSelection = (ingredientIds: number[], recipeId: number) => {
+    // Update state
+    currentRecipeID(recipeId);
+    // Create URL:
+    generatePath("/recipe/:recipeId/:ingredientIds", {
+      recipeId: String(recipeId),
+      ingredientIds: String(ingredientIds),
+    });
+
+    const url = `/recipe/${recipeId}/${ingredientIds}`;
+
+    navigate(url);
+  };
 
   return (
-    <Box sx={boxSize} key={key} onClick={() => console.log(recipeCardData)}>
-      <StyledCard /*className={cx(styling.card, shadowStyles.root)}*/>
+    <Box sx={boxSize} key={key}>
+      {/* <Link to={href}> */}
+      <StyledCard onClick={() => handleRecipeSelection(ingredientIds, id)}>
         <CardContent>
           <CardMedia
             style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
             // classes={wideCardMediaStyles}
             image={
-              recipeCardData.imgLink
-                ? recipeCardData.imgLink
+              imgLink
+                ? imgLink
                 : "https://i1.wp.com/www.careandshare-ut.org/wp-content/uploads/2020/09/image-coming-soon.jpg?ssl=1"
             }
           />
-          <StyledH2>{recipeCardData.name}</StyledH2>
+          <StyledH2>{name}</StyledH2>
           <StyledDescriptionP /*className={styles.subheader}*/>
-            {recipeDescription.length > 150
-              ? `${recipeDescription.substring(0, 120)}...`
-              : recipeCardData.description}
+            {description!.length > 150
+              ? `${description!.substring(0, 120)}...`
+              : description}
           </StyledDescriptionP>
         </CardContent>
         <Divider style={{ background: "#57807f38" }} />
@@ -40,27 +66,28 @@ export const RecipeCard: React.FC<IRecipeCardProps> = ({
           <Grid container>
             <RecipeStat
               type={"Question"}
-              value={recipeCardData.portions}
+              value={portions}
               text={"Port"}
               border={false}
             />
 
             <RecipeStat
               type={"Clock"}
-              value={recipeCardData.cookingTime}
+              value={cookingTime}
               text={"MIN"}
               border={false}
             />
 
             <RecipeStat
               type={"Heart"}
-              value={recipeCardData.matches + "/" + ingredientCount}
+              value={matches + "/" + ingredientCount}
               text={"RÅVAROR"}
               border={false}
             />
           </Grid>
         </Box>
       </StyledCard>
+      {/* </Link> */}
     </Box>
   );
 };

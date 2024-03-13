@@ -52,7 +52,7 @@ const bounceInUpKeyframes = keyframes`
   }
 `;
 
-export const StyledRecipeBox = styled.div`
+export const StyledRecipeBox = styled(Box)`
   overflow: hidden;
   animation-timing-function: ease-in;
   -webkit-animation-duration: 10s;

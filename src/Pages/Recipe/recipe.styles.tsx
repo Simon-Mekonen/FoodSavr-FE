@@ -35,7 +35,6 @@ export const StyledH1 = styled("h1")({
 });
 // #57807f 100%
 
-//TODO: Fix so keyframes work
 const bounceInUpKeyframes = keyframes`
   0% {
     opacity: 0;
@@ -53,15 +52,15 @@ const bounceInUpKeyframes = keyframes`
   }
 `;
 
-export const StyledRecipeBox = styled(Box)({
-  overflow: "hidden",
-  animationTimingFunction: "ease-in",
-  WebkitAnimationDuration: "10s",
-  animationDuration: "0.4s",
-  WebkitAnimationFillMode: "both",
-  animationFillMode: "both",
-  // animationName: bounceInUpKeyframes,
-});
+export const StyledRecipeBox = styled.div`
+  overflow: hidden;
+  animation-timing-function: ease-in;
+  -webkit-animation-duration: 10s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: ${bounceInUpKeyframes};
+`;
 
 export const StyledRecipeHero = styled(Box)({
   position: "relative",

@@ -15,8 +15,8 @@ export const Step = ({
 }) => {
   return done ? (
     <>
-      <StepIcon color={baseTheme.colors.lightGrey}>
-        <FaRegArrowAltCircleRight key={key} />
+      <StepIcon color={baseTheme.colors.pink}>
+        <FaCheckCircle key={key} />
       </StepIcon>
       <StepChecked>
         <StepNo>{row}:</StepNo> {text}
@@ -24,8 +24,8 @@ export const Step = ({
     </>
   ) : (
     <>
-      <StepIcon color={baseTheme.colors.pink}>
-        <FaCheckCircle key={key} />
+      <StepIcon color={baseTheme.colors.darkGrey}>
+        <FaRegArrowAltCircleRight key={key} />
       </StepIcon>
       <StepText>
         <StepNo>{row}:</StepNo> {text}
@@ -55,6 +55,12 @@ export const StepText = styled("p")({
 export const StepChecked = styled(StepText)({
   backgroundColor: baseTheme.colors.lightGrey,
   textDecoration: "line-through",
+  opacity: 0.8,
+  border: "none",
+  borderRadius: "4px",
+  transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+  color: "rgba(0, 0, 0, 0.6)",
+  boxShadow: "0 0 10px",
 });
 
 export const StepNo = styled("span")({

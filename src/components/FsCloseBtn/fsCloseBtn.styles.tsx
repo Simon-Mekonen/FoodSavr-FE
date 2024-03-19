@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-
 import { FaRegTimesCircle } from "react-icons/fa";
 import styled from "styled-components";
 import { baseTheme } from "../../styles/theme";

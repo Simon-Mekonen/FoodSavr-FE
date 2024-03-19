@@ -1,8 +1,7 @@
-import * as React from "react";
-import { Box /*palette */ } from "@mui/system";
+import { Box } from "@mui/system";
 import { CardContent, CardMedia, Divider, Grid } from "@mui/material";
 import { RecipeStat } from "../RecipStats/recipeStats";
-import { boxSize, StyledCard, StyledDescriptionP } from "./recipeCard.styles";
+import { StyledCard, StyledDescriptionP } from "./recipeCard.styles";
 import { StyledH2 } from "../../styles/theme";
 import {
   currentRecipeIDState,
@@ -11,6 +10,7 @@ import {
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { generatePath, useNavigate } from "react-router-dom";
 import { IRecipeBlob } from "../../API/API.types";
+import { RecipeCardBox } from "./recipeCardBox";
 
 export const RecipeCard = ({
   recipeCardData,
@@ -43,7 +43,7 @@ export const RecipeCard = ({
   };
 
   return (
-    <Box sx={boxSize} key={key}>
+    <RecipeCardBox key={key}>
       {/* <Link to={href}> */}
       <StyledCard onClick={() => handleRecipeSelection(ingredientIds, id)}>
         <CardContent>
@@ -92,6 +92,6 @@ export const RecipeCard = ({
         </Box>
       </StyledCard>
       {/* </Link> */}
-    </Box>
+    </RecipeCardBox>
   );
 };
